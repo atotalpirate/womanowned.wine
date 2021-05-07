@@ -1,0 +1,107 @@
+section.feature {
+    padding-top: 10rem;
+    .vintage {
+        margin-bottom: 0;
+    }
+    h1.title,
+    h2.title {
+        font-size: $size-1 + 1;
+        margin:0;
+    }
+    h2.title {
+        opacity: 0.66;
+    }
+    h3.title {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-family: $sans-serif;
+        opacity: 0.33;
+        margin-top: 0.5rem;
+    }
+
+    p {
+        font-size: 1.125rem;
+    }
+    .date {
+        margin: 1.5rem 0;
+        opacity: 0.5;
+    }
+    .featured-image {
+        position: sticky;
+        top: 1rem;
+
+        svg {
+            width: 100%;
+            height: auto;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        
+        small {
+            display: block;
+            margin-top: 1rem;
+        }
+    }
+
+    .block-quote {
+        padding: 0.5rem 3rem;
+        border-left: 0.5rem solid $primary;
+        margin: 3rem 0px;
+        font-size: 1rem;
+        h2 {
+            font-family: $sans-serif;
+            color: $dark;
+            font-size: 1.5rem;
+        }
+    }
+    
+    .segment {
+        &:not(:last-child) {
+            .answer {
+                margin-bottom: 3rem;
+            }
+        }
+        .column.is-half {
+            margin: 0 2rem;
+        }
+        .segment-title {
+            text-align: right;
+            margin-bottom: 1.5rem;
+            p {
+                color: $dark;
+                font-size: 1.5rem;
+            }
+        }
+        .sticky {
+            display: block;
+            position: sticky;
+            top: 1rem;
+            .image {
+                border-radius: $radius;
+                height: auto;
+                overflow: hidden;
+            }
+            small {
+                opacity: 0.66;
+                display: inline-block;
+                margin:  0.5rem;
+            }
+        }
+    }
+}
+
+.modal.expanded-image {
+    img {
+        max-height: 80vh;
+        width: 100%;
+        object-fit: contain;
+    }
+    .content {
+        color: $white;
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+}

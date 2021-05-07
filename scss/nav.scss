@@ -1,0 +1,206 @@
+// Wordpress classes
+
+@include touch {
+  .navbar {
+    &.is-active {
+      background-color: $white;
+      background-image: url(/wp-content/themes/women-owned-wineries-sonoma/img/black-felt-10percent.png);
+      #mainNav {
+        background-color: transparent;
+      }
+    }
+    .navbar-burger {
+      margin-right: 1.25rem;
+    }
+    .navbar-menu.is-active {
+      padding-bottom: 2rem;
+      .navbar-start {
+        display: block;
+        .menu {
+          > .menu-item {
+            a {
+              font-size: 1.25rem;
+              color: $text;
+              text-transform: uppercase;
+              display: block;
+              padding: 0.5rem 2rem 0.5rem 0.5rem;
+            }
+          }
+        }
+        .sub-menu {
+          margin-right: 2rem;
+          border-right: 4px solid rgba($text, 0.33);
+          li.menu-item > a {
+            &:first-of-type {
+              padding-top: 0;
+              margin-top: 0.5rem;
+            }
+            font-size: 1rem;
+            padding: 0.5rem 1rem 0.5rem 0.5rem;
+            &:last-of-type {
+              padding-bottom: 0;
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.navbar-start {
+  display: none;
+}
+
+.navbar-end {
+  .menu-main-container {
+    @extend .navbar-menu;
+    ul.menu {
+      @extend .navbar-end;
+      .navbar-item {
+        &:hover {
+          > .navbar-dropdown {
+            display: block;
+          }
+        }
+      }
+      li.menu-item {
+        @extend .navbar-item;
+        a {
+          width: 100%;
+          color: $text;
+          font-weight: 400;
+          transition: $tranny;
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+      > li.menu-item-has-children {
+        > a {
+          padding-right: 2em;
+          &:after {
+            right: 1.125em;
+            @include arrow($dark);
+          }
+        }
+        &:hover .sub-menu {
+          display: block;
+        }
+        &:hover .sub-menu .sub-menu {
+          display: none;
+        }
+  
+        ul.sub-menu {
+          @extend .navbar-dropdown;
+          border-top: none;
+          border-radius: $radius;
+          right: 0 !important;
+          left: unset;
+          ul.sub-menu {
+            margin:1rem;
+            top: -0.5rem;
+            left: 0;
+            transform: translateX(-100%);
+            border-top: none;
+            border-top-left-radius: 4px;
+            width: 120%;
+            li {
+              white-space: normal;
+            }
+          }
+          li.menu-item {
+            &:after {
+              display: none;
+            }
+            &.menu-item-has-children {
+              > a {
+                padding-right: 2em;
+                &:after {
+                  margin-top: -0.375em;
+                  right: 1.125em;
+                  @include arrow($dark);
+                  opacity: 0.33;
+                  transform: rotate(45deg);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Bulma theme overwrites
+
+
+
+header.site-header {
+  position: absolute;
+  width: 100%;
+  > svg {
+    position: absolute;
+    right: -25rem;
+    top: -25rem;
+    width: 50rem;
+    height: 50rem;
+    fill: $grey;
+    opacity: 0.2;
+    z-index: 0;
+  }
+}
+
+.navbar-brand {
+  align-items: center;
+  .navbar-item {
+    span {
+      line-height: 0;
+      svg {
+        height: 5rem;
+        width: auto;
+        .logo {
+          fill: $white;
+        }
+        .circle {
+          fill:$primary;
+        }
+      }
+    }
+  }
+}
+
+nav.navbar {
+  background-color: transparent;
+  align-items: center;
+
+  .navbar-menu {
+    box-shadow: none;
+    text-align: end;
+    font-family: $navigation;
+  }
+}
+
+.navbar-item {
+  text-transform: uppercase;
+}
+
+.header-links {
+  ul {
+    display: flex;
+    flex-direction: row;
+    li {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.header-menu {
+  display: none;
+}
+
+.flyout-cart {
+  .count {
+    display: none;
+  }
+}

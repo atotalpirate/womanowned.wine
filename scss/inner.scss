@@ -1,0 +1,58 @@
+.single,
+.page:not(.home),
+.archive,
+.search {
+    section:not(.info-bar) {
+        padding-top: 12rem;
+        min-height: 100vh;
+        @include mobile {
+            padding-top: 8rem;
+        }
+        .container {
+            > .title {
+                text-align: center;
+                // font-family: $navigation;
+                text-transform: uppercase;
+                // font-size: 5rem;
+                margin: 0rem 0 2rem; 
+            }
+            > .content {
+                column-count: 2;
+                margin: 0 0 3rem;
+                @include mobile {
+                    column-count: 1;
+                }
+            }
+        }
+    }
+}
+
+.section {
+    padding: 2rem 0.75rem;
+    .container {
+        > .title {
+            font-size: 5rem;
+        }
+        .block {
+            img {
+                max-height: 3rem;
+            }
+        }
+    }
+}
+
+section.error-404 {
+    min-height: 75vh;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h3 {
+        font-family: $sans-serif;
+        margin-bottom: 1rem;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+}

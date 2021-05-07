@@ -1,0 +1,50 @@
+.club {
+    @include tablet {
+      padding: 4rem 0;
+    }
+    .columns {
+        .column {
+            position: relative;
+            .card {
+                box-shadow: unset;
+                min-height: 15rem;
+                .title {
+                    margin-bottom: 0;
+                }
+                &:hover {
+                    box-shadow: unset;
+                    .card-bg {
+                        transform: scale(1);
+                    }
+                }
+            }
+            .content {
+                padding: 1rem;
+            }
+            .featured-bottles {
+                .column {
+                    text-align: center;
+                    margin-top: 1rem;
+                    color: $text;
+                    figure {
+                        img {
+    
+                        }
+                    }
+                    h3,h4 {
+                        font-family: $sans-serif;
+                        text-transform: lowercase;
+                        text-transform: capitalize;
+                    }
+                    h3 {
+                        font-weight: bold;
+                        margin-top: 0.5rem;
+                    }
+                    h4 {
+                        
+                    }
+                }
+            }
+        }
+    }
+  }

@@ -1,0 +1,237 @@
+/*!
+Theme Name: Women Owned Wineries Sonoma
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: women-owned-wineries-sonoma
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+Women Owned Wineries Sonoma is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Generic
+	- Normalize
+	- Box sizing
+# Base
+	- Typography
+	- Elements
+	- Links
+	- Forms
+## Layouts
+# Components
+	- Navigation
+	- Posts and pages
+	- Comments
+	- Widgets
+	- Media
+	- Captions
+	- Galleries
+# plugins
+	- Jetpack infinite scroll
+# Utilities
+	- Accessibility
+	- Alignments
+
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Generic
+--------------------------------------------------------------*/
+
+/* Posts and pages
+--------------------------------------------- */
+.sticky {
+	display: block;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+# Plugins
+--------------------------------------------------------------*/
+
+/* Jetpack infinite scroll
+--------------------------------------------- */
+
+/* Hide the Posts Navigation and the Footer when Infinite Scroll is in use. */
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+	display: none;
+}
+
+/* Re-display the Theme Footer when Infinite Scroll has reached its end. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+
+/* Accessibility
+--------------------------------------------- */
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: #21759b;
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 700;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Abril+Fatface&family=Josefin+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+// @font-face {
+//     font-family: 'Lovin Sans';
+//     src: url("../fonts/LovinSans-Regular.otf") format("opentype");
+// }
+// @font-face {
+//     font-family: 'Speedee';
+//     font-weight: 100;
+//     src: url("../fonts/Speedee-Regular.ttf") format("truetype");
+// }
+// @font-face {
+//     font-family: 'Speedee';
+//     font-weight: bolder;
+//     src: url("../fonts/Speedee-Black.ttf") format("truetype");
+// }
+ 
+@import "fontawesome-free/scss/fontawesome.scss";
+  @import "fontawesome-free/scss/solid.scss";
+  @import "fontawesome-free/scss/brands.scss";
+
+$title-family: 'Abril Fatface';
+$body-family: 'Josefin Sans';
+
+$navigation: 'Montserrat';
+$serif: 'Abril Fatface', serif;
+$sans-serif: 'Josefin Sans', sans-serif;
+
+  // Bulma $variables
+//   $primary: #F0A489;
+  $primary: #ffa281;
+  $secondary: #241b27;
+//   $cta: #4cf0af;
+//   $cta: #9DD9D2;
+  $cta: #67e3d4;
+  $success: $cta;
+  
+
+  $link: $secondary;
+  $text: #515151;
+  $body-color: $text;
+
+  $title-size: 3rem;
+
+  $fullhd: 1152px;
+  $widescreen: 1152px;
+
+  $navbar-item-hover-color: $cta;
+
+//   $button-background-color: white !important;
+
+//   $button-border-width: 0.5rem;
+//   $button-padding-vertical: 1.5em !important;
+//   $button-padding-horizontal: 1em;
+//   $button-family: $navigation !important;
+
+    $tranny-easing: cubic-bezier(0.4, 0.0, 0.2, 1);
+    $tranny-speed: 250ms !default;
+    $tranny: $tranny-speed $tranny-easing;
+
+
+
+// Importing everything now, may reduce libraries for launch
+@import "bulma-0.9.0/bulma.sass";
+
+// Import Material Elevation
+
+@import 'elevation.scss';
+
+
+// Import theme styles
+
+@import "_global.scss";
+@import "nav.scss";
+@import "home.scss";
+@import "testimonials.scss";
+@import "cards.scss";
+@import "people.scss";
+@import "purpose.scss";
+@import "wine-club.scss";
+@import "vinespring.scss";
+@import "press-gallery.scss";
+@import "winery.scss";
+@import "region.scss";
+@import "search-results.scss";
+@import "search-form.scss";
+@import "features.scss";
+@import "inner.scss";
+@import "single.scss";
+@import "accordion.scss";
+@import "info-bar.scss";
+@import "contact.scss";
+@import "footer.scss";
+
+@import "splide.scss";
+@import "mce-styles.scss";
+
+// sass --watch styles.scss:../style.css --style compressed

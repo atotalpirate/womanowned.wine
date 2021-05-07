@@ -1,0 +1,37 @@
+#searchForm {
+    .field {
+       @extend .z2;
+       @extend .elevation-transition;
+       &:hover {
+           @extend .z4;
+       }
+    }
+
+    .icon {
+        font-size: 1.35rem;       
+    }
+
+    input {
+        box-shadow: none;
+        border-color: $white;
+        font-family: $navigation;
+        z-index: 2;
+        &::placeholder {
+            font-family: $navigation;
+            font-size: 1rem;
+        }
+        &:focus,
+        &:active {
+            outline: none;
+            border-color: $white;
+            box-shadow: none;
+            background-color: $white;
+        }
+        font-size: 1.25rem;
+        &[type="submit"] {
+            font-family: $navigation;
+            background-color: $cta;
+            border-color: $cta;
+        }
+    }
+}

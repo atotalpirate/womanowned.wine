@@ -1,0 +1,32 @@
+.people {
+    .column {
+        svg {
+            width: 100%;
+            height: auto;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .title {
+            margin: 1.5rem 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+    }
+    .modal-content {
+        max-width: 30rem;
+        .card {
+            display: block;
+            &:after {
+                display: none;
+            }
+            .media-content {
+                .subtitle {
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+}

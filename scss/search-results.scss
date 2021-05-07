@@ -1,0 +1,155 @@
+.directory {
+    display: flex;
+    align-items: center;
+    #searchForm {
+        max-width: 666px;
+        margin: 0 auto;
+    }
+}
+
+.search-results {
+    .results {
+        > p {
+            margin: 2rem auto;
+            font-size: 1.5rem;
+            opacity: 0.33;
+        }
+    }
+    .flourish-divider {
+        margin: 3rem 0;
+    }
+    .columns {
+        .column {
+            .card {
+                display: block;
+                background-image: url(/wp-content/themes/women-owned-wineries-sonoma/img/black-felt-10percent.png);
+                &:hover {
+                    a.overlay-button {
+                        display: block;
+                    }
+                }
+                &:after {
+                    content: "";
+                    display: none;
+                }
+                .card-image {
+                    display: block;
+                    border-bottom: 1px solid rgba($secondary, 0.05);
+                    background-color: rgba($secondary,0.05);
+                    img {
+                        object-fit: cover;
+                    }
+                    a.overlay-button {
+                        display: none;
+                    }
+                }
+                .card-content {
+                    .media {
+                        margin-left: 0.7rem;
+                        .title {
+                            font-weight: bold;
+                            color: $text;
+                            font-family: $sans-serif;
+                        }
+                    }
+                }
+                .content {
+                    ul {
+                        min-height: 3rem;
+                        list-style: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.featured {
+    padding-bottom: 3rem;
+    .verified {
+        position: absolute;
+        left: 0.75rem;
+        top: 1.15rem;
+        p {
+            position: absolute;
+            bottom: 20px;
+            left: 2px;
+            font-size: 7px;
+            font-weight: bold;
+        }
+    }
+}
+
+.search {
+    h3 {
+        color: $text;
+        font-family: $sans-serif;
+    }
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+        &:visited {
+            color: $text;
+        }
+    }
+    ul {
+        position: relative;
+        span.icon {
+            opacity: 0.33;
+        }
+    }
+    .not-featured {
+        .column {
+            padding-bottom: 2rem;
+        }
+        header {
+            h3 {
+                font-weight: bold;
+            }
+            h3,
+            .subtitle {
+                // margin-left: 1.75rem;
+            }
+        }
+        .subtitle {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+ul.address {
+    list-style: none;
+    margin: 0;
+    li {
+        margin-left: 1.75rem;
+        span.icon {
+            position: absolute;
+            left: 0;
+        }
+        span:not(.icon) {
+            display: inline;
+            &:after {
+                content: ', ';
+            }
+            &:last-of-type {
+    
+                &:after {
+                    content: '.';
+                }
+            }
+        }
+    }
+}
+
+.searchwp-live-search-results {
+    margin-top: 0.5rem;
+    border-radius: 1rem !important;
+    .spinner {
+        display: none !important;
+    }
+    .searchwp-revised-search-notice {
+        padding: 1rem 1rem 0;
+        opacity: 0.33;
+    }
+}

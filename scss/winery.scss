@@ -1,0 +1,41 @@
+section.winery {
+    .featured-image {
+        position: relative !important;
+        top: 0 !important;
+        img {
+            border-radius: $radius;
+            border: 1px solid $border;
+        }
+    }
+    h3.title {
+        opacity: 1 !important;
+        color: rgba($text, 0.33);
+        position: relative;
+        display: inline-block;
+    }
+    span.verified {
+        position: relative;
+        top: 5px;
+        left: 8px;
+        p.has-text-info {
+            position: absolute;
+            right: 0;
+            transform: translate(100%, 3px);
+        }
+    }
+    .address {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+    .buttons {
+        .website,
+        .phone {
+            span.icon {
+                margin-right: 0.25rem !important;
+            }
+        }
+        .social.button {
+            padding: 1rem;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+.section {
+    .MuiPaper-root {
+        background-color: transparent;
+        max-width: 666px;
+        .MuiListItem-root {
+            border-radius: 100em;
+            background-color: rgba($secondary, 0.02);
+            &:hover {
+                background-color: rgba($secondary, 0.07);
+            }
+            &:not(:last-child) {
+                margin-bottom: 0.5rem;
+            }
+            &.Mui-selected {
+                background-color: rgba($secondary, 0.1);
+            }
+        }
+        .MuiInputBase-root {
+            background-color: rgba($white, 0.66);
+        }
+        .MuiSvgIcon-root {
+            font-size: 2.5rem;
+            margin-top: -4px;
+            padding-left: 0px;
+            padding-right: 16px;
+        }
+        .MuiStepLabel-label {
+            font-family: $navigation;
+            font-size: $size-5;
+        }
+        .MuiButton-root {
+            @extend .button;
+            @extend .is-rounded;
+            @extend .is-dark;
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+            background-color: $dark !important;
+            opacity: 0.9;
+            transition: all 0.1s;
+            &:not(:last-child) {
+                margin-right: 1rem;
+            }
+        }
+        .MuiButton-containedPrimary {
+            @extend .is-success;
+            background-color: #9DD9D2 !important;
+            &:focus,
+            &:hover {
+                opacity: 0.8;
+                @extend .is-success;
+            }
+        }
+    }
+}

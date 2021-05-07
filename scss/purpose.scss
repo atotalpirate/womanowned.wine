@@ -1,0 +1,18 @@
+section.purpose {
+    min-height: auto !important;
+}
+section.quote {
+    padding: 2rem 1rem !important; 
+    min-height: auto !important;
+    .block-quote {
+        padding: 0.5rem 3rem;
+        border-left: 0.5rem solid $primary;
+        margin: 3rem 0px;
+        font-size: 1rem;
+        h2 {
+            font-family: $sans-serif;
+            color: $dark;
+            font-size: 3rem;
+        }
+    }
+}

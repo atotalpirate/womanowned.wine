@@ -1,0 +1,96 @@
+.home {
+  section:not(.info-bar, .masthead) {
+    position: relative;
+    min-height: 90vh;
+    .container {
+      > .title {
+        text-align: center;
+        font-size: 5rem;
+        margin: 3rem 0;
+      }
+      > .content {
+        display: none;
+      }
+    }
+  }
+  .wine-club {
+    .card {
+      &:before {
+        content:"";
+        padding-bottom: 100%;
+      }
+    }
+    .column:last-of-type {
+      margin-bottom: 5rem;
+    }
+  }
+}
+
+.masthead {
+  min-height: 70vh;
+  @include mobile {
+    padding-top: 4rem;
+  }
+  .container {
+  }
+
+  .hero-body {
+    min-height: 55rem;
+    .columns {
+      justify-content: space-between;
+      .column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    .text {
+      .title {
+        font-size: 6rem;
+        
+        line-height: 0.9;
+        word-spacing: 100em;
+        word-break: inherit;
+        font-family: $serif;
+        text-transform: capitalize;
+        @include mobile {
+          font-size: 2.333rem;
+        }
+      }
+      p {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+      }
+    }
+    .image {
+      position: relative;
+      img {
+        border: 1rem solid transparent;
+      }
+      svg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+.how-we-work {
+  display: flex;
+  align-items: center;
+  .columns {
+    h3 {
+      color: $text;
+      font-size: 3rem;
+      font-family: $sans-serif;
+    }
+    .icon {
+      opacity: 0.66;
+      margin: 1rem;
+    }
+  }
+}
+
