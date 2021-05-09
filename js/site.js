@@ -40,17 +40,18 @@ if (window.location.pathname === '/' && window.location.search === '') {
   $(document).ready(function () {
 
     // masthead image changer
-    var _intervalId;
 
-    function fadeInLastImg() {
-      var backImg = $('.masthead-images image:first');
+    function fadeInLastImg(className) {
+      var backImg = $('.'+className+'-masthead-images image:first');
       backImg.hide();
-      $('.masthead-images').append(backImg);
-      backImg.fadeIn()
+      $('.'+className+'-masthead-images').append(backImg);
+      backImg.fadeIn();
+      console.log('hmm');
     };
 
-    _intervalId = setInterval(function () {
-      fadeInLastImg();
+    setInterval(function () {
+      fadeInLastImg('desktop');
+      fadeInLastImg('mobile');
     }, 5000);
 
     // Accordions

@@ -7,6 +7,9 @@
         text-align: center;
         font-size: 5rem;
         margin: 3rem 0;
+        @include touch {
+          font-size: 4rem;
+        }
       }
       > .content {
         display: none;
@@ -28,6 +31,9 @@
     font-size: 5rem;
     margin-top: 7rem;
     margin-bottom: 4rem !important;
+    @include touch {
+      font-size: 4rem;
+    }
 }
 .testimonials {
   margin-bottom: 7rem;
@@ -70,11 +76,11 @@
   @include mobile {
     padding-top: 4rem;
   }
-  .container {
-  }
 
   .hero-body {
-    min-height: 55rem;
+    @include desktop {
+      min-height: 55rem;
+    }
     .columns {
       justify-content: space-between;
       .column {
@@ -86,14 +92,14 @@
     .text {
       .title {
         font-size: 6rem;
-        
         line-height: 0.9;
         word-spacing: 100em;
         word-break: inherit;
         font-family: $serif;
         text-transform: capitalize;
-        @include mobile {
-          font-size: 2.333rem;
+        @include touch {
+          font-size: 4rem;
+          text-align: center;
         }
       }
       p {
@@ -103,6 +109,11 @@
     }
     .image {
       position: relative;
+      &.is-hidden-desktop {
+        width: 80vw;
+        padding-top: 80vw;
+        margin:1rem auto;
+      }
       img {
         border: 1rem solid transparent;
       }
@@ -121,10 +132,22 @@
   display: flex;
   align-items: center;
   .columns {
+    @include touch {
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
     h3 {
       color: $text;
       font-size: 3rem;
       font-family: $sans-serif;
+      @include touch {
+        font-size: 2rem;
+      }
+    }
+    p {
+      max-width: 300px;
+      margin: 0 auto;
     }
     .icon {
       opacity: 0.66;
