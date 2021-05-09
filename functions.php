@@ -309,6 +309,13 @@ if (function_exists('acf_add_options_page')) {
 	));
 
 	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Featured Bottles Archive Settings',
+		'menu_title'	=> 'Featured Bottles',
+		'parent_slug'	=> 'global-settings',
+		'post_id'		=> 'featured-bottles-theme',
+	));
+
+	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Interview Archive Settings',
 		'menu_title'	=> 'Interviews',
 		'parent_slug'	=> 'global-settings',

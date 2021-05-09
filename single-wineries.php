@@ -110,10 +110,9 @@ $featured_image_caption = get_field('featured_image_caption');
                                     <small class="has-text-centered"><?php echo $featured_image_caption; ?></small>
                                 <?php endif; ?>
                             </div>
-                            <div class="tile is-child">
+                            <div class="tile is-child featured-bottles">
                                 <?php if ($featured_bottles) : ?>
                                     <h3>Featured Bottles</h3>
-                                    <div class="featured-bottles">
                                         <div class="columns is-multiline">
                                         <?php foreach ($featured_bottles as $key => $bottle) :
                                             $bottle_img = wp_get_attachment_url(get_post_thumbnail_id($bottle->ID));
@@ -130,7 +129,6 @@ $featured_image_caption = get_field('featured_image_caption');
                                                 <h4><?php echo $bottle_term[0]->name; ?></h4>
                                             </a>
                                         <?php endforeach; ?>
-                                        </div>
                                     </div>
                                 <?php endif; ?>
                             </div>

@@ -68,8 +68,7 @@ $featured_image_caption = get_field('featured_image_caption');
                 $photo = get_sub_field('photo');
                 $photo_caption = get_sub_field('photo_caption');
                 $block_quote = get_sub_field('block_quote');
-                $counter++;
-        ?>
+                $counter++; ?>
 
                 <?php if ($block_quote) : ?>
                     <div class="block-quote columns">
@@ -105,30 +104,41 @@ $featured_image_caption = get_field('featured_image_caption');
                                     <?php endif; ?>
                                 </div>
                             </div>
-
-                            <div class="modal expanded-image modal_<?php echo $counter; ?>">
-                                <div class="modal-background"></div>
-                                <div class="modal-content">
-                                    <figure class="image">
-                                        <img src="<?php echo $photo; ?>" alt="<?php echo $photo_caption; ?>">
-                                    </figure>
-                                    <div class="content">
-                                        <?php echo $photo_caption; ?>
-                                    </div>
-                                </div>
-                                <button class="modal-close is-large" aria-label="close"></button>
-                            </div>
                         <?php endif; ?>
 
                     </div>
                 <?php endif; ?>
 
             <?php endwhile; ?>
-        <?php endif; ?>
+        <?php endif; $counter = 0;  ?>
 
     </div>
 
 </section>
 
 <?php
-get_footer();
+get_footer(); ?>
+
+<?php if (have_rows('segment')) : while (have_rows('segment')) : the_row();
+
+                $title = get_sub_field('title');
+                $title_format = get_sub_field('title_format');
+                $content = get_sub_field('content');
+                $photo = get_sub_field('photo');
+                $photo_caption = get_sub_field('photo_caption');
+                $block_quote = get_sub_field('block_quote');
+                $counter++;
+        ?>
+<div class="modal expanded-image modal_<?php echo $counter; ?>">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <figure class="image">
+            <img src="<?php echo $photo; ?>" alt="<?php echo $photo_caption; ?>">
+        </figure>
+        <div class="content">
+            <?php echo $photo_caption; ?>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+<?php endwhile; endif; ?>

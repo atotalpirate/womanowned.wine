@@ -44,6 +44,15 @@ section.feature {
             display: block;
             margin-top: 1rem;
         }
+        a {
+            text-decoration: underline;
+        }
+        .winery-link {
+            display: block;
+            text-align: center;
+            text-decoration: underline;
+            margin-top: 1rem;
+        }
     }
 
     .block-quote {

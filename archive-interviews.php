@@ -43,8 +43,8 @@ $interviews = new WP_Query($args); ?>
                     $date = get_the_date();
                     $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>
 
-                    <a href="<?php echo $url; ?>" class="column is-half">
-                        <div class="card">
+                    <a href="<?php echo $url; ?>" class="column is-one-third">
+                        <div class="card interview">
                             <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
                             <div class="card-content has-text-white">
                                 <h1 class="title "><?php echo $title; ?></h1>

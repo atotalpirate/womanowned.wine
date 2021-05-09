@@ -26,7 +26,7 @@ $description = get_the_content(); ?>
         </div>
 
         <div class="flourish-divider">
-            <?php echo file_get_contents(get_stylesheet_directory().'/img/flourish.svg'); ?>
+            <?php echo file_get_contents(get_stylesheet_directory() . '/img/flourish.svg'); ?>
         </div>
 
         <?php if (have_rows('people')) : ?>
@@ -52,33 +52,7 @@ $description = get_the_content(); ?>
                         <h5 class="title"><?php echo $name; ?></h5>
                         <p class="subtitle"><?php echo $title; ?></p>
                     </a>
-
-                    <div class="modal modal_<?php echo $counter; ?>">
-                        <div class="modal-background"></div>
-                        <div class="modal-content">
-                            <div class="card">
-                                <div class="card-image">
-                                    <figure class="image">
-                                        <img src="<?php echo $profile; ?>" alt="Photo of <?php echo $name; ?>">
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <div class="media">
-                                        <div class="media-content has-text-centered">
-                                            <p class="title is-3 has-text-dark"><?php echo $name; ?></p>
-                                            <p class="subtitle"><?php echo $title; ?></p>
-                                        </div>
-                                    </div>
-
-                                    <div class="content">
-                                        <?php echo $description; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="modal-close is-large" aria-label="close"></button>
-                    </div>
-                <?php endwhile; ?>
+                <?php endwhile; $counter = 0; ?>
             </div>
         <?php else : ?>
             <div class="empty">
@@ -91,3 +65,36 @@ $description = get_the_content(); ?>
 
 
 <?php get_footer(); ?>
+
+<?php while (have_rows('people')) : the_row();
+                    $name = get_sub_field('name');
+                    $title = get_sub_field('title');
+                    $profile = get_sub_field('profile');
+                    $description = get_sub_field('description');
+                    $counter++; ?>
+<div class="modal modal_<?php echo $counter; ?>">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="<?php echo $profile; ?>" alt="Photo of <?php echo $name; ?>">
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content has-text-centered">
+                        <p class="title is-3 has-text-dark"><?php echo $name; ?></p>
+                        <p class="subtitle"><?php echo $title; ?></p>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <?php echo $description; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+        <?php endwhile; ?>

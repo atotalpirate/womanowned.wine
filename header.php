@@ -46,8 +46,8 @@
     }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180788171-1"></script>
-    <script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180788171-1"></script> -->
+    <!-- <script>
     window.dataLayer = window.dataLayer || [];
 
     function gtag() {
@@ -56,7 +56,7 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-180788171-1');
-    </script>
+    </script> -->
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e49f49aef80cb79df223052d3/34fa1f37bbe9d391e8823ba08.js");</script>
 </head>
 

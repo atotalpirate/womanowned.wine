@@ -1,3 +1,16 @@
+html {
+  background-color: $secondary;
+  &.is-clipped {
+    #page {
+      filter: blur(15px);
+    }
+  }
+}
+body {
+  background-color: $white;
+  background-image: url(/wp-content/themes/women-owned-wineries-sonoma/img/black-felt-10percent.png);
+}
+
 .meta,
 .content,
 .accordion {
@@ -77,14 +90,6 @@ h6 {
 
 .message-success {
   color: $success;
-}
-
-html {
-  background-color: $secondary;
-}
-body {
-  background-color: $white;
-  background-image: url(/wp-content/themes/women-owned-wineries-sonoma/img/black-felt-10percent.png);
 }
 
 .flourish-divider {
@@ -216,4 +221,30 @@ a[class*="button"] {
 .two-column-wrapper {
   padding-top: 5rem;
 
+}
+
+//Animations
+
+@keyframes fadeOut {
+  0% { opacity: 1;}
+  99% { opacity: 0.01;width: 100%; height: 100%;}
+  100% { opacity: 0;width: 0; height: 0;}
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; width: 0; height: 0;}
+  1% { opacity: 0.01;width: 100%; height: 100%;}
+  100% { opacity: 1;}
+}
+
+.fadeIn{
+  display: block;
+  animation: fadeIn 500ms;
+  animation-fill-mode: forwards;
+}
+
+.fadeOut{
+  display: block;
+  animation: fadeOut 500ms;
+  animation-fill-mode: forwards;
 }

@@ -22,14 +22,6 @@
       transform: translate(-50%, -50%);
       width: auto;
       fill: $primary;
+      mix-blend-mode: multiply;
     }
-    // &:after {
-    //   content: url(/wp-content/themes/women-owned-wineries-sonoma/img/bar.svg);
-    //   position: absolute;
-    //   top: 0;
-    //   left: 50%;
-    //   height: 10rem;
-    //   width: auto;
-    //   transform: translateX(-50%);
-    // }
   }

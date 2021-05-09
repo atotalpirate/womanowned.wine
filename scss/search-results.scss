@@ -153,3 +153,17 @@ ul.address {
         opacity: 0.33;
     }
 }
+
+#subscribeWall.modal {
+    p,a {
+        display: block;
+        margin: 1rem auto;
+    }
+    a {
+        text-decoration: underline;
+    }
+    #mce-modal-responses {
+        color: $white;
+        text-align: center;
+    }
+}

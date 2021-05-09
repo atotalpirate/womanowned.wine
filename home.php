@@ -14,7 +14,7 @@ get_header();
 $args = array(  
     'post_type' => array('interviews', 'featured-bottles'),
     'post_status' => 'publish',
-    'posts_per_page' => 8, 
+    'posts_per_page' => -1, 
     'orderby' => 'title', 
     'order' => 'ASC', 
 );
@@ -29,6 +29,17 @@ $loop = new WP_Query( $args ); ?>
             <?php single_post_title(); ?>
         </h1>
 
+        <?php 
+            if ( $page_id = get_option( 'page_for_posts' ) ) {
+                // the_content() doesn't accept a post ID parameter
+                if ( $post = get_post( $page_id ) ) {
+                    setup_postdata( $post ); //  "posts" page is now current post for most template tags        
+                    the_content();
+                    wp_reset_postdata(); // So everything below functions as normal
+                }
+            }
+        ?>
+
         <div class="columns is-multiline">
         <?php while ( $loop->have_posts() ) : $loop->the_post(); 
             // echo '<pre class="white text">';var_dump( $post );echo '</pre>';
@@ -39,7 +50,7 @@ $loop = new WP_Query( $args ); ?>
                 $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); ?>
 
             <a href="<?php echo $url; ?>" class="column is-one-third">
-                <div class="card">
+                <div class="card interview">
                     <span class="tag is-link is-medium">
                         Interview
                     </span>

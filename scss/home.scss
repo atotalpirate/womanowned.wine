@@ -24,6 +24,45 @@
       margin-bottom: 5rem;
     }
   }
+  h2.testimonial-title {
+    font-size: 5rem;
+    margin-top: 7rem;
+    margin-bottom: 4rem !important;
+}
+.testimonials {
+  margin-bottom: 7rem;
+    .splide {
+        margin: 2rem 0;
+        .splide__arrow {
+            fill: rgba($white, 0.666);
+        }
+    }
+    .content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;        
+        cursor: grab;
+        span {
+            display: block;
+        }
+        .testimonial {
+            font-size: 1.5rem;
+            width: 90%;
+            margin: 0 auto;
+        }
+        .person {
+            margin-top: 1rem;
+            .name {
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+            .organization {
+                font-size: 1.25rem;
+            }
+        }
+    }
+  }
 }
 
 .masthead {

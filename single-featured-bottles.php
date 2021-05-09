@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all single posts
  *
@@ -13,7 +14,7 @@ $title = get_the_title();
 $date = get_the_date();
 $content = get_the_content();
 $quote = get_field('quote');
-$image = wp_get_attachment_url( get_post_thumbnail_id($post->ID));
+$image = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 $term = wp_get_post_terms($post->ID, 'varietals');
 $vineyard = get_field('vineyard');
 $vintage = get_field('vintage');
@@ -56,12 +57,13 @@ $featured_winery = get_field('featured_winery');
                                     </svg>
                                 </figure>
 
-                                <?php if($featured_image_caption): ?>
+                                <?php if ($featured_image_caption) : ?>
                                     <small class="has-text-centered"><?php echo $featured_image_caption; ?></small>
                                 <?php endif; ?>
-                                <?php if($featured_winery):
-                                    //  echo '<pre class="white text">';var_dump($featured_winery);echo '</pre>'; ?>
-                                    <a href="<?php the_permalink($featured_winery->ID); ?>" class="button is-primary is-outlined is-rounded">More About<?php echo $featured_winery->post_title ?></a>
+                                <?php if ($featured_winery) :
+                                    //  echo '<pre class="white text">';var_dump($featured_winery);echo '</pre>'; 
+                                ?>
+                                    <a class="winery-link" href="<?php the_permalink($featured_winery->ID); ?>">Visit winery page.<?php // echo $featured_winery->post_title ?></a>
                                 <?php endif; ?>
                             </div>
                         </article>
@@ -70,74 +72,88 @@ $featured_winery = get_field('featured_winery');
             </div>
         </div>
 
-        <?php if( have_rows('segment') ) : while( have_rows('segment') ): the_row(); 
+        <?php if (have_rows('segment')) : while (have_rows('segment')) : the_row();
 
-            $title = get_sub_field('title');
-            $title_format = get_sub_field('title_format');
-            $content = get_sub_field('content');
-            $photo = get_sub_field('photo');
-            $photo_caption = get_sub_field('photo_caption');
-            $block_quote = get_sub_field('block_quote');
-            $counter++;
-            ?>
-        
-        <?php if($block_quote) : ?>
-            <div class="block-quote columns">
-                <div class="column is-full">
-                    <h2><?php echo $block_quote; ?></h2>
-                </div>
-            </div>
-        <?php endif; ?>
+                $title = get_sub_field('title');
+                $title_format = get_sub_field('title_format');
+                $content = get_sub_field('content');
+                $photo = get_sub_field('photo');
+                $photo_caption = get_sub_field('photo_caption');
+                $block_quote = get_sub_field('block_quote');
+                $counter++;
+        ?>
 
-        <?php if ($photo || $title || $content) : ?>
-            <div class="segment columns is-multiline">
-            <div class="column is-half">
-
-                <div class="segment-title <?php echo ($title_format == 'question') ? 'has-text-right' : 'has-text-left'; ?>">
-                    <p class="has-text-weight-bold"><?php echo $title; ?></p>
-                </div>
-                <div>
-                    <div class="answer content">
-                        <?php echo $content; ?>
-                    </div>
-                </div>
-            </div>
-
-            <?php if ($photo) : ?>
-                <div class="figure column is-one-quarter">
-                    <div class="sticky">
-                        <figure id="modal_<?php echo $counter; ?>" class="expander image">
-                            <img src="<?php echo $photo; ?>" alt="">
-                        </figure>
-                        <?php if($photo_caption): ?>
-                        <small><?php echo $photo_caption; ?></small>
-                        <?php endif; ?>
-                    </div>
-                </div>
-
-                <div class="modal expanded-image modal_<?php echo $counter; ?>">
-                    <div class="modal-background"></div>
-                    <div class="modal-content">
-                        <figure class="image">
-                            <img src="<?php echo $photo; ?>" alt="<?php echo $photo_caption; ?>">
-                        </figure>
-                        <div class="content">
-                            <?php echo $photo_caption; ?>
+                <?php if ($block_quote) : ?>
+                    <div class="block-quote columns">
+                        <div class="column is-full">
+                            <h2><?php echo $block_quote; ?></h2>
                         </div>
                     </div>
-                    <button class="modal-close is-large" aria-label="close"></button>
-                </div>
-            <?php endif; ?>
+                <?php endif; ?>
 
-        </div>
-        <?php endif; ?>
+                <?php if ($photo || $title || $content) : ?>
+                    <div class="segment columns is-multiline">
+                        <div class="column is-half">
 
-        <?php endwhile; ?>
-        <?php endif; ?>
+                            <div class="segment-title <?php echo ($title_format == 'question') ? 'has-text-right' : 'has-text-left'; ?>">
+                                <p class="has-text-weight-bold"><?php echo $title; ?></p>
+                            </div>
+                            <div>
+                                <div class="answer content">
+                                    <?php echo $content; ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php if ($photo) : ?>
+                            <div class="figure column is-one-quarter">
+                                <div class="sticky">
+                                    <figure id="modal_<?php echo $counter; ?>" class="expander image">
+                                        <img src="<?php echo $photo; ?>" alt="">
+                                    </figure>
+                                    <?php if ($photo_caption) : ?>
+                                        <small><?php echo $photo_caption; ?></small>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+
+                        <?php endif; ?>
+
+                    </div>
+                <?php endif; ?>
+
+            <?php endwhile; ?>
+        <?php endif;
+        $counter = 0; ?>
 
     </div>
 
 </section>
 
 <?php
-get_footer();
+get_footer(); ?>
+
+<?php if (have_rows('segment')) : while (have_rows('segment')) : the_row();
+
+        $title = get_sub_field('title');
+        $title_format = get_sub_field('title_format');
+        $content = get_sub_field('content');
+        $photo = get_sub_field('photo');
+        $photo_caption = get_sub_field('photo_caption');
+        $block_quote = get_sub_field('block_quote');
+        $counter++;
+?>
+    <?php if($photo) : ?>
+        <div class="modal expanded-image modal_<?php echo $counter; ?>">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <figure class="image">
+                    <img src="<?php echo $photo; ?>" alt="<?php echo $photo_caption; ?>">
+                </figure>
+                <div class="content">
+                    <?php echo $photo_caption; ?>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+    <?php endif; endwhile; endif; ?>

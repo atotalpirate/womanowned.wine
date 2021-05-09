@@ -15,6 +15,9 @@ $statistic_block_1 = get_field('statistic_block_1');
 $statistic_block_2 = get_field('statistic_block_2');
 $statistic_block_3 = get_field('statistic_block_3');
 
+// How we work
+$how_we_work = get_field('how_we_work');
+
 get_header();
 
 // Homepage variables
@@ -100,7 +103,7 @@ $tagline = get_field('tagline');
     'order' => 'DESC'
 );
 
-$interviews = new WP_Query($args);
+$wine_club = new WP_Query($args);
 $description = get_field('description', 'wine-club-theme');
 ?>
 
@@ -115,24 +118,24 @@ $description = get_field('description', 'wine-club-theme');
         <div class="columns is-variable is-8 has-text-centered">
             <div class="column is-one-third">
                 <span class="icon has-text-dark is-size-1">
-                    <i class="fas fa-hands-helping"></i>
+                    <?php echo $how_we_work['icon_1']; ?>
                 </span>
-                <h3>Connecting</h3>
-                <p>We invite wine lovers to find and support independent women producers.</p>
+                <h3><?php echo $how_we_work['title_1']; ?></h3>
+                <p><?php echo $how_we_work['content_1']; ?></p>
             </div>
             <div class="column is-one-third">
                 <span class="icon has-text-dark is-size-1">
-                    <i class="fas fa-book-reader"></i>
+                    <?php echo $how_we_work['icon_2']; ?>
                 </span>
-                <h3>Storytelling</h3>
-                <p>We share unsung perspectives from the hardworking women behind your favorite bottles</p>
+                <h3><?php echo $how_we_work['title_2']; ?></h3>
+                <p><?php echo $how_we_work['content_2']; ?></p>
             </div>
             <div class="column is-one-third">
                 <span class="icon has-text-dark is-size-1">
-                    <i class="fas fa-mountain"></i>
+                    <?php echo $how_we_work['icon_3']; ?>
                 </span>
-                <h3>Elevating</h3>
-                <p>We foster community and build resources to help level the playing field in a heavily male-dominated industry.</p>
+                <h3><?php echo $how_we_work['title_3']; ?></h3>
+                <p><?php echo $how_we_work['content_3']; ?></p>
             </div>
         </div>
 </section>
@@ -150,10 +153,11 @@ $description = get_field('description', 'wine-club-theme');
                 <?php echo $description; ?>
             </div>
         <?php endif; ?>
-        <?php if ($interviews->have_posts()) : ?>
+        <?php if ($wine_club->have_posts()) : ?>
 
             <div class="columns is-multiline">
-                <?php while ($interviews->have_posts()) : $interviews->the_post();
+                <?php while ($wine_club->have_posts()) : $wine_club->the_post(); $count++; endwhile;?>
+                <?php while ($wine_club->have_posts()) : $wine_club->the_post();
                     $title = get_the_title();
                     $date = get_the_date();
                     $link = get_the_permalink();
@@ -162,8 +166,8 @@ $description = get_field('description', 'wine-club-theme');
                     $excerpt = get_the_excerpt();
                 ?>
 
-                    <a href="<?php echo $link . '?clubId=' . $clubID; ?>" class="column is-half">
-                        <div class="card">
+                    <a href="<?php echo $link . '?clubId=' . $clubID; ?>" class="column <?php echo ($count > 2) ? 'is-one-third' : 'is-half' ; ?>">
+                        <div class="card wine-club">
                             <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
                             <div class="card-content has-text-white">
                                 <h1 class="title "><?php echo $title; ?></h1>
@@ -182,7 +186,7 @@ $description = get_field('description', 'wine-club-theme');
     </div>
 <?php else : ?>
     <div class="empty">
-        <h2 class="subtitle has-text-centered">No interviews yet.</h2>
+        <h2 class="subtitle has-text-centered">No clubs yet.</h2>
     </div>
 <?php endif;
         wp_reset_query(); ?>
@@ -193,7 +197,7 @@ $description = get_field('description', 'wine-club-theme');
 <section class="testimonials info-bar section has-text-white">
     <div class="container">
 
-        <div class="splide" data-splide='{"type":"loop","perPage":1,"arrows":false,"autoplay":true,"interval": 6000}'>
+        <div class="splide" data-splide='{"type":"loop","perPage":1,"arrows":true,"autoplay":true,"interval": 6000}'>
             <div class="splide__track">
                 <ul class="splide__list">
                 <?php while (have_rows('testimonials')) : the_row();
@@ -201,11 +205,11 @@ $description = get_field('description', 'wine-club-theme');
                     $organization = get_sub_field('organization');
                     $testimonial = get_sub_field('testimonial'); ?>
                     <li class="splide__slide">
-                        <div class="content">
+                        <div class="content has-text-centered">
                             <span class="testimonial">
                                 <?php echo $testimonial; ?>
                             </span>
-                            <span class="person has-text-centered">
+                            <span class="person">
                                 <span class="name"><?php echo $name; ?></span>
                                 <?php echo ($organization) ? '<span class="organization">'.$organization.'</span>' : '' ; ?>
                             </span>
@@ -214,6 +218,7 @@ $description = get_field('description', 'wine-club-theme');
                 <?php endwhile; ?>
                 </ul>
             </div>
+            
         </div>
 
     </div>
