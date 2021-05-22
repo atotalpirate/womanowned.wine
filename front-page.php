@@ -25,7 +25,6 @@ $tagline = get_field('tagline');
 ?>
 
 <section class="masthead hero is-fullheight">
-    <!-- <div class="overlay"></div> -->
     <div class="hero-head"></div>
     <div class="hero-body">
         <div class="container">
@@ -192,10 +191,6 @@ $description = get_field('description', 'wine-club-theme');
                             <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
                             <div class="card-content has-text-white">
                                 <h1 class="title "><?php echo $title; ?></h1>
-                                <!-- <div class="meta">
-                            <span>Posted on <?php // echo $date; 
-                                            ?></span>
-                        </div> -->
                                 <div class="content has-text-white">
                                     <?php echo $excerpt; ?>
                                 </div>
