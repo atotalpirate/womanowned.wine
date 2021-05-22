@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <!-- <link rel="stylesheet" href="<?php // echo get_template_directory_uri() . '/css/styles.min.css'; ?>"> -->
-    <!-- <link rel="icon" type="image/x-icon" href="<?php // echo get_template_directory_uri().'/favicon.ico?v=2'; ?>" /> -->
+    <link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri().'/favicon.ico?v=2'; ?>" />
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
     <script src="https://jssdk.vinespring.com/v3.js" data-api-key='acct_5aa5aa50123e3b03aca8ea15'></script>
     <script type="text/javascript">
@@ -46,8 +46,8 @@
     }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180788171-1"></script> -->
-    <!-- <script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180788171-1"></script>
+    <script>
     window.dataLayer = window.dataLayer || [];
 
     function gtag() {
@@ -56,7 +56,7 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-180788171-1');
-    </script> -->
+    </script>
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e49f49aef80cb79df223052d3/34fa1f37bbe9d391e8823ba08.js");</script>
 </head>
 

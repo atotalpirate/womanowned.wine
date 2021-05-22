@@ -128,8 +128,8 @@ $made_possible = get_field('made_possible', 'option');
     <div class="modal-background"></div>
     <div class="modal-content">
         <form action="https://wowsonoma.us9.list-manage.com/subscribe/post-json?u=e49f49aef80cb79df223052d3&amp;id=f3ec14ba49" method="post" id="mc-modal-subscribe-form" name="mc-modal-subscribe-form" class="form validate" target="_blank" novalidate>
-			<h3 class="title has-text-centered has-text-white">Follow us!</h3>
-			<p class="has-text-right has-text-white">If you like what we're doing with this directory, consider subscribing to our newsletter!</p>
+			<h3 class="title has-text-centered has-text-white">Join the Community!</h3>
+			<p class="has-text-centered has-text-white">Like what you see? Subscribe to our newsletter.</p>
             <div class="field has-addons">
                 <div class="control is-expanded has-icons-left">
                     <input type="email" value="" placeholder="hello@email.address" name="EMAIL" class="input is-rounded is-inverted required" id="mce-EMAIL" aria-required="true">

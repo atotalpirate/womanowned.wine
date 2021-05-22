@@ -85,7 +85,7 @@ get_header();
 												<?php endif; ?>
 
 												<h3 class="title is-5"><?php the_title(); ?></h3>
-												<?php echo ($proprietor) ? '<p class="subtitle is-6">' . $proprietor . '</p>' : ''; ?>
+												<?php echo ($proprietor) ? '<p class="subtitle is-5">' . $proprietor . '</p>' : ''; ?>
 											</div>
 										</a>
 
@@ -149,7 +149,7 @@ get_header();
 							<div class="column is-one-third">
 								<header>
 								<h3 class=""><?php the_title(); ?></h3>
-								<?php echo ($proprietor) ? '<p class="subtitle is-6">' . $proprietor . '</p>' : ''; ?>
+								<?php echo ($proprietor) ? '<p class="subtitle is-5">' . $proprietor . '</p>' : ''; ?>
 								</header>
 								<ul class="address">
 									<?php

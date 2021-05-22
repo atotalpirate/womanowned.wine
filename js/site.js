@@ -46,13 +46,14 @@ if (window.location.pathname === '/' && window.location.search === '') {
       backImg.hide();
       $('.'+className+'-masthead-images').append(backImg);
       backImg.fadeIn();
-      console.log('hmm');
     };
 
-    setInterval(function () {
-      fadeInLastImg('desktop');
-      fadeInLastImg('mobile');
-    }, 5000);
+    if (window.location.pathname === '/') {
+      setInterval(function () {
+        fadeInLastImg('desktop');
+        fadeInLastImg('mobile');
+      }, 5000);
+    }
 
     // Accordions
     var allTitles = $('.accordion > dt');

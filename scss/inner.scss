@@ -18,8 +18,10 @@
                 margin: 0rem 0 2rem; 
             }
             > .content {
-                column-count: 2;
-                margin: 0 0 3rem;
+                margin: 0 auto 3rem;
+                .has-two-columns {
+                    column-count: 2;   
+                }
                 @include mobile {
                     column-count: 1;
                 }
