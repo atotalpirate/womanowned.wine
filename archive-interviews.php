@@ -18,7 +18,7 @@ $args = array(
     'post_type' => 'interviews',
     'post_status' => 'publish',
     'posts_per_page' => -1,
-    'order' => 'DESC'
+    'order' => 'ASC'
 );
 
 $interviews = new WP_Query($args); ?>
