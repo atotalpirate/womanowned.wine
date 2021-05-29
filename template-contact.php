@@ -34,7 +34,7 @@ $content_length = strlen($content);
 
                 <dt>
                     <span class="icon">
-                        <i class="fas fa-caret-right"></i>
+                        <i class="fas fa-caret-right" aria-hidden="true"></i>
                     </span>
                     <a href=""><?php echo $question; ?></a>
                 </dt>
@@ -53,6 +53,7 @@ $content_length = strlen($content);
         <?php echo do_shortcode('[contact-form-7 id="586" title="Contact Page"]'); ?>
 
     </div>
+
 </section>
 
 
