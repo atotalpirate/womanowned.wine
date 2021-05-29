@@ -30,7 +30,7 @@ $tagline = get_field('tagline');
         <div class="container">
             <div class="columns">
                 <div class="text column is-half-desktop is-full-touch">
-                <figure class="image is-hidden-desktop is-square">
+                    <figure class="image is-hidden-desktop is-square">
                         <svg width="676" height="681" viewBox="0 0 676 681" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <clipPath id="user-space-desktop" clipPathUnits="userSpaceOnUse">
@@ -73,9 +73,10 @@ $tagline = get_field('tagline');
                             <g class="desktop-masthead-images">
                                 <?php if (have_rows('images')) : while (have_rows('images')) : the_row(); ?>
 
-                                    <image width="100%" height="100%" preserveAspectRatio="xMinYMin slice" xlink:href="<?php the_sub_field('image'); ?>" clip-path="url(#user-space)" />
+                                        <image width="100%" height="100%" preserveAspectRatio="xMinYMin slice" xlink:href="<?php the_sub_field('image'); ?>" clip-path="url(#user-space)" />
 
-                                <?php endwhile; else : ?>
+                                    <?php endwhile;
+                                else : ?>
 
                                     <image width="100%" height="100%" preserveAspectRatio="xMinYMin slice" xlink:href="<?php echo $image; ?>" clip-path="url(#user-space)" />
 
@@ -116,17 +117,6 @@ $tagline = get_field('tagline');
     <?php echo file_get_contents(get_stylesheet_directory() . '/img/bar.svg'); ?>
 </section>
 
-<?php $args = array(
-    'post_type' => 'wine-club',
-    'post_status' => 'publish',
-    'posts_per_page' => -1,
-    'order' => 'DESC'
-);
-
-$wine_club = new WP_Query($args);
-$description = get_field('description', 'wine-club-theme');
-?>
-
 <section class="how-we-work section">
     <div class="container">
         <h2 class="title">How We Work</h2>
@@ -160,6 +150,15 @@ $description = get_field('description', 'wine-club-theme');
         </div>
 </section>
 
+<?php $args = array(
+    'post_type' => 'wine-club',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'order' => 'DESC'
+);
+
+$wine_club = new WP_Query($args); ?>
+
 <section class="wine-club section">
     <div class="container">
         <h2 class="title">Wine Club</h2>
@@ -176,70 +175,117 @@ $description = get_field('description', 'wine-club-theme');
         <?php if ($wine_club->have_posts()) : ?>
 
             <div class="columns is-multiline">
-                <?php while ($wine_club->have_posts()) : $wine_club->the_post(); $count++; endwhile;?>
+                <?php while ($wine_club->have_posts()) : $wine_club->the_post();
+                    $count++;
+                endwhile; ?>
                 <?php while ($wine_club->have_posts()) : $wine_club->the_post();
                     $title = get_the_title();
                     $date = get_the_date();
                     $link = get_the_permalink();
+                    $end_date = get_field('ending_date');
                     $clubID = get_field('club_id');
-                    $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
+
+                    $image_id = get_post_thumbnail_id($post->ID);
+                    $image = wp_get_attachment_url($image_id);
+                    $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE);
+                    $image_title = get_the_title($image_id);
+
                     $excerpt = get_the_excerpt();
+
+                    $featured_bottles = get_field('featured_bottles');
+
+                    // echo '<pre class="white text">';var_dump( $image_meta );echo '</pre>'; 
                 ?>
 
-                    <a href="<?php echo $link . '?clubId=' . $clubID; ?>" class="column <?php echo ($count > 2) ? 'is-one-third' : 'is-half' ; ?>">
+                    <div class="column <?php echo ($count > 2) ? 'is-one-third' : 'is-half'; ?>">
                         <div class="card wine-club">
-                            <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
-                            <div class="card-content has-text-white">
-                                <h1 class="title "><?php echo $title; ?></h1>
-                                <div class="content has-text-white">
+                            <a href="<?php echo $link . '?clubId=' . $clubID; ?>" class="card-image">
+                                <?php if ($end_date) : ?>
+                                    <div class="tag is-medium is-rounded">Ends on <?php echo $end_date; ?></div>
+                                <?php endif; ?>
+                                <figure class="image is-4by3">
+                                    <img src="<?php echo $image; ?>" alt="<?php echo $image_alt; ?>" title="<?php echo $image_title; ?>">
+                                </figure>
+                            </a>
+                            <div class="card-content">
+                                <div class="media">
+                                    
+                                    <div class="media-content">
+                                        <p class="title"><?php echo $title; ?></p>
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="content">
                                     <?php echo $excerpt; ?>
                                 </div>
                             </div>
+                            <footer class="card-footer">
+                                <span>Featured Bottles</span>
+                                <?php
+                                foreach ($featured_bottles as $key => $bottle) :
+                                    $bottle_img = wp_get_attachment_url(get_post_thumbnail_id($bottle->ID));
+                                    $bottle_title = get_the_title($bottle->ID);
+                                    $bottle_term = wp_get_post_terms($bottle->ID, 'varietals');
+                                    $bottle_url = get_the_permalink($bottle->ID);
+                                    //  echo '<pre class="white text">';var_dump($bottle_img);echo '</pre>'; 
+                                ?>
+                                    <figure class="image">
+                                        <img class="is-rounded" src="<?php echo $bottle_img; ?>">
+                                    </figure>
+                                <?php endforeach; ?>
+                                <a href="#" class="button is-primary is-rounded">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </footer>
                         </div>
-                    </a>
-                <?php endwhile; ?>
+                    </div>
+
+                    <?php endwhile; ?>
+                    </div>
             </div>
-    </div>
-<?php else : ?>
-    <div class="empty">
-        <h2 class="subtitle has-text-centered">No clubs yet.</h2>
-    </div>
-<?php endif;
+        <?php else : ?>
+            <div class="empty">
+                <h2 class="subtitle has-text-centered">No clubs yet.</h2>
+            </div>
+        <?php endif;
         wp_reset_query(); ?>
 </section>
 
 <?php if (have_rows('testimonials')) : ?>
-<h2 class="title testimonial-title has-text-centered">Why People Love Us.</h2>
-<section class="testimonials info-bar section has-text-white">
-    <div class="container">
+    <h2 class="title testimonial-title has-text-centered">Why People Love Us.</h2>
+    <section class="testimonials info-bar section has-text-white">
+        <div class="container">
 
-        <div class="splide" data-splide='{"type":"loop","perPage":1,"arrows":true,"autoplay":true,"interval": 6000}'>
-            <div class="splide__track">
-                <ul class="splide__list">
-                <?php while (have_rows('testimonials')) : the_row();
-                    $name = get_sub_field('name');
-                    $organization = get_sub_field('organization');
-                    $testimonial = get_sub_field('testimonial'); ?>
-                    <li class="splide__slide">
-                        <div class="content has-text-centered">
-                            <span class="testimonial">
-                                <?php echo $testimonial; ?>
-                            </span>
-                            <span class="person">
-                                <span class="name"><?php echo $name; ?></span>
-                                <?php echo ($organization) ? '<span class="organization">'.$organization.'</span>' : '' ; ?>
-                            </span>
-                        </div>
-                    </li>
-                <?php endwhile; ?>
-                </ul>
+            <div class="splide" data-splide='{"type":"loop","perPage":1,"arrows":true,"autoplay":true,"interval": 6000}'>
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <?php while (have_rows('testimonials')) : the_row();
+                            $name = get_sub_field('name');
+                            $organization = get_sub_field('organization');
+                            $testimonial = get_sub_field('testimonial'); ?>
+                            <li class="splide__slide">
+                                <div class="content has-text-centered">
+                                    <span class="testimonial">
+                                        <?php echo $testimonial; ?>
+                                    </span>
+                                    <span class="person">
+                                        <span class="name"><?php echo $name; ?></span>
+                                        <?php echo ($organization) ? '<span class="organization">' . $organization . '</span>' : ''; ?>
+                                    </span>
+                                </div>
+                            </li>
+                        <?php endwhile; ?>
+                    </ul>
+                </div>
+
             </div>
-            
-        </div>
 
-    </div>
-    <?php echo file_get_contents(get_stylesheet_directory() . '/img/bar.svg'); ?>
-</section>
+        </div>
+        <?php echo file_get_contents(get_stylesheet_directory() . '/img/bar.svg'); ?>
+    </section>
 
 <?php endif; ?>
 
