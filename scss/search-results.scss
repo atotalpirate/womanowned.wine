@@ -156,9 +156,9 @@ ul.address {
 }
 
 #subscribeWall.modal {
-    p,a {
+    p {
         display: block;
-        margin: 1rem auto;
+        margin: 1rem auto 1.5rem;
     }
     a {
         text-decoration: underline;
@@ -167,4 +167,14 @@ ul.address {
         color: $white;
         text-align: center;
     }
+    .opt-out {
+        position: relative;
+        display: block;
+        margin: 1.5rem auto 0;
+        width: 140px;
+        .icon {
+          position: absolute;
+          right:0;
+        }
+      }
 }

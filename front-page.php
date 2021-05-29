@@ -206,16 +206,9 @@ $wine_club = new WP_Query($args); ?>
                                 <figure class="image is-4by3">
                                     <img src="<?php echo $image; ?>" alt="<?php echo $image_alt; ?>" title="<?php echo $image_title; ?>">
                                 </figure>
+                                <p class="title"><?php echo $title; ?></p>
                             </a>
                             <div class="card-content">
-                                <div class="media">
-                                    
-                                    <div class="media-content">
-                                        <p class="title"><?php echo $title; ?></p>
-                                        
-                                    </div>
-                                </div>
-
                                 <div class="content">
                                     <?php echo $excerpt; ?>
                                 </div>
