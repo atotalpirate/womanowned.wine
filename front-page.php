@@ -154,7 +154,7 @@ $tagline = get_field('tagline');
     'post_type' => 'wine-club',
     'post_status' => 'publish',
     'posts_per_page' => -1,
-    'order' => 'DESC'
+    'order' => 'ASC'
 );
 
 $wine_club = new WP_Query($args); ?>
@@ -214,20 +214,22 @@ $wine_club = new WP_Query($args); ?>
                                 </div>
                             </div>
                             <footer class="card-footer">
-                                <span>Featured Bottles</span>
-                                <?php
-                                foreach ($featured_bottles as $key => $bottle) :
-                                    $bottle_img = wp_get_attachment_url(get_post_thumbnail_id($bottle->ID));
-                                    $bottle_title = get_the_title($bottle->ID);
-                                    $bottle_term = wp_get_post_terms($bottle->ID, 'varietals');
-                                    $bottle_url = get_the_permalink($bottle->ID);
-                                    //  echo '<pre class="white text">';var_dump($bottle_img);echo '</pre>'; 
-                                ?>
-                                    <figure class="image">
-                                        <img class="is-rounded" src="<?php echo $bottle_img; ?>">
-                                    </figure>
-                                <?php endforeach; ?>
+                                <span class="featured-title">Featured Bottles</span>
+                                <span class="featured-bottles">
+                                    <?php foreach ($featured_bottles as $key => $bottle) :
+                                        $bottle_img = wp_get_attachment_url(get_post_thumbnail_id($bottle->ID));
+                                        $bottle_title = get_the_title($bottle->ID);
+                                        $bottle_term = wp_get_post_terms($bottle->ID, 'varietals');
+                                        $bottle_url = get_the_permalink($bottle->ID);
+                                        //  echo '<pre class="white text">';var_dump($bottle_img);echo '</pre>'; 
+                                    ?>
+                                        <figure class="image">
+                                            <img class="is-rounded" src="<?php echo $bottle_img; ?>">
+                                        </figure>
+                                    <?php endforeach; ?>
+                                </span>
                                 <a href="#" class="button is-primary is-rounded">
+                                    <span>Shop</span>
                                     <span class="icon is-small">
                                         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                                     </span>
@@ -236,14 +238,14 @@ $wine_club = new WP_Query($args); ?>
                         </div>
                     </div>
 
-                    <?php endwhile; ?>
-                    </div>
+                <?php endwhile; ?>
             </div>
-        <?php else : ?>
-            <div class="empty">
-                <h2 class="subtitle has-text-centered">No clubs yet.</h2>
-            </div>
-        <?php endif;
+    </div>
+<?php else : ?>
+    <div class="empty">
+        <h2 class="subtitle has-text-centered">No clubs yet.</h2>
+    </div>
+<?php endif;
         wp_reset_query(); ?>
 </section>
 

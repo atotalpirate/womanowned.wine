@@ -183,6 +183,13 @@ section {
 .button {
   font-weight: bold;
   cursor: pointer;
+  @extend .z2, .elevation-transition;
+  &:hover {
+    @extend .z4;
+  }
+  span.icon {
+    display: inline-block;
+  }
   &.is-cta {
     color: $text;
     background-color: $cta;
