@@ -1,12 +1,15 @@
 .card {
-    border-radius: 2.5rem;
+    overflow: hidden;
+    border-radius: 1.5rem 1.5rem 2.5rem 2.5rem;
+    @extend .z3, .elevation-transition;
+    &:hover {
+        @extend .z5;
+    }
     &.column {
         padding: 0;
     }
     &.wine-club {
         .card-image {
-            border-top-right-radius: 1rem;
-            border-top-left-radius: 1rem;
             overflow: hidden;
             object-fit: cover;
             img {
@@ -28,6 +31,16 @@
                 top: 0;
                 left: 0;
                 z-index: 1;
+                // background: linear-gradient(18deg, 
+                //                             rgba(240,164,137,1) 0%,
+                //                             rgba(255,255,255,0.2763480392156863) 75%, 
+                //                             rgba(157, 217, 210, 0.43) 100%
+                //                             );
+                background: linear-gradient(18deg, 
+                                            rgba(240,164,137,1) 15%,
+                                            rgba(255,255,255,0.2763480392156863) 75%, 
+                                            rgba(157, 217, 210, 0.43) 100%
+                                            );
                 
             }
             .title {
@@ -35,13 +48,12 @@
                 text-transform: capitalize;
                 color: $white;
                 font-size: 1.75rem;
-                background: linear-gradient(0deg, darken($primary,5%), rgba($primary, 0.5), transparent);
-                z-index: 1;
+                z-index: 2;
                 position: absolute;
-                padding: 50% 1rem 1rem;
-                color: white;
-                width: 100%;
                 bottom: 0;
+                padding: 1rem;
+                color: white;
+                
             }
         }
         .card-content {
@@ -53,7 +65,8 @@
         }
         .card-footer {
             padding: 0 0.5rem 0;
-            > span {
+            justify-content: space-between;
+            .featured-title {
                 background-color: $white;
                 font-family: $navigation;
                 width: auto;
@@ -70,13 +83,19 @@
             }
             .image,
             .button {
-                width: 50px;
-                height: 50px;
-                margin: 1.5rem 0.5rem 1rem;
-                
+                display: inline-block;
+                width: 45px;
+                height: 45px;
+                margin: 1.5rem 0.5rem 0.5rem;   
             }
             .button {
-                @extend .z2;
+                display: flex;
+                align-items: center;
+                width: auto;
+                @extend .z3, .elevation-transition;
+                &:hover {
+                    @extend .z5;
+                }
             }
         }
     }
