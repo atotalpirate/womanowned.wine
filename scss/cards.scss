@@ -1,12 +1,12 @@
 .card {
-    border-radius: 2rem;
+    border-radius: 2.5rem;
     &.column {
         padding: 0;
     }
     &.wine-club {
         .card-image {
-            border-top-right-radius: 2rem;
-            border-top-left-radius: 2rem;
+            border-top-right-radius: 1rem;
+            border-top-left-radius: 1rem;
             overflow: hidden;
             object-fit: cover;
             img {
@@ -28,22 +28,27 @@
                 top: 0;
                 left: 0;
                 z-index: 1;
-                background: linear-gradient(transparent 20%, $primary 70%);
+                
+            }
+            .title {
+                font-family: $sans-serif;
+                text-transform: capitalize;
+                color: $white;
+                font-size: 1.75rem;
+                background: linear-gradient(0deg, darken($primary,5%), rgba($primary, 0.5), transparent);
+                z-index: 1;
+                position: absolute;
+                padding: 50% 1rem 1rem;
+                color: white;
+                width: 100%;
+                bottom: 0;
             }
         }
         .card-content {
             position: relative;
-            .media {
-                position: absolute;
-                top: -1.5rem;
-                transform: translateY(-100%);
-                z-index: 2;
-                .title {
-                    font-family: $sans-serif;
-                    text-transform: capitalize;
-                    color: $white;
-                    font-size: 2rem;
-                }
+            padding: 1rem;
+            .content {
+                padding-bottom: 1rem;
             }
         }
         .card-footer {

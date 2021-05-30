@@ -124,39 +124,6 @@ $made_possible = get_field('made_possible', 'option');
 
 <?php wp_footer(); ?>
 
-<div id="subscribeWall" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-        <form action="https://wowsonoma.us9.list-manage.com/subscribe/post-json?u=e49f49aef80cb79df223052d3&amp;id=f3ec14ba49" method="post" id="mc-modal-subscribe-form" name="mc-modal-subscribe-form" class="form validate" target="_blank" novalidate>
-			<h3 class="title has-text-centered has-text-white">Join the Community!</h3>
-			<p class="has-text-centered has-text-white">Like what you see? Subscribe to our newsletter.</p>
-            <div class="field has-addons">
-                <div class="control is-expanded has-icons-left">
-                    <input type="email" value="" placeholder="hello@email.address" name="EMAIL" class="input is-rounded is-inverted required" id="mce-EMAIL" aria-required="true">
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
-                    </span>
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f1120753af05172754a874dee_ac3335af5e" tabindex="-1" value=""></div>
-                </div>
-                <div class="control">
-                    <button type="submit" class="button is-rounded is-cta" id="mc-modal-subscribe">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-				</div>
-            </div>
-
-            <div id="mce-modal-responses" class="clear">
-                <div class="response" id="mce-error-response" style="display:none"></div>
-                <div class="response" id="mce-success-response" style="display:none"></div>
-			</div>
-			
-			<a id="optOut" href="#" class="has-text-centered has-text-white">Please don't ask again.</a>
-
-            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e49f49aef80cb79df223052d3_f3ec14ba49" tabindex="-1" value=""></div>
-        </form>
-    </div>
-</div>
-
 </body>
 
 </html>
