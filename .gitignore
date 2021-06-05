@@ -2,7 +2,12 @@
 
 style.css.map
 
-// ignoring style.css because it should be recompiled if this theme is ever forked or reinstalled
+// ignoring style.css because it should be compiled if this theme is ever forked or installed
 
 style.css
+
+// dependencies
+
+node_modules
+
 
