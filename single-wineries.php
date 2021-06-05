@@ -114,16 +114,16 @@ $featured_image_caption = get_field('featured_image_caption');
                                 <?php if ($featured_bottles) : ?>
                                     <h3>Featured Bottles</h3>
                                         <div class="columns is-multiline">
+
                                         <?php foreach ($featured_bottles as $key => $bottle) :
                                             $bottle_img = wp_get_attachment_url(get_post_thumbnail_id($bottle->ID));
                                             $bottle_title = get_the_title($bottle->ID);
                                             $bottle_term = wp_get_post_terms($bottle->ID, 'varietals');
                                             $bottle_url = get_the_permalink($bottle->ID);
-                                            //  echo '<pre class="white text">';var_dump($bottle_img);echo '</pre>'; 
                                         ?>
                                             <a href="<?php echo $bottle_url; ?>" class="column is-one-third">
                                                 <figure class="image">
-                                                    <img class="is-rounded" src="<?php echo $bottle_img; ?>">
+                                                    <img class="is-rounded" alt="photo of <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
                                                 </figure>
                                                 <h3><?php echo $bottle_title; ?></h3>
                                                 <h4><?php echo $bottle_term[0]->name; ?></h4>

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Interviews
+ *
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,10 +10,8 @@
 
 get_header();
 
-/**
- * Setup query to show the ‘services’ post type with ‘8’ posts.
- * Output the title with an excerpt.
- */
+$interviews_page = get_page_by_title('interviews');
+
 $args = array(
     'post_type' => 'interviews',
     'post_status' => 'publish',
@@ -28,7 +26,7 @@ $interviews = new WP_Query($args); ?>
     <div class="container">
         <h2 class="title">Interviews</h2>
         <div class="content">
-            <?php the_field('description', 'interviews-theme') ?>
+            <?php echo $interviews_page->post_content; ?>
         </div>
         <div class="flourish-divider">
             <?php echo file_get_contents(get_stylesheet_directory() . '/img/flourish.svg'); ?>

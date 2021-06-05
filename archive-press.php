@@ -1,5 +1,7 @@
 <?php
+
 /**
+ * Template Name: Press
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -8,10 +10,8 @@
 
 get_header(); 
 
-/**
- * Setup query to show the ‘services’ post type with ‘8’ posts.
- * Output the title with an excerpt.
- */
+$press_page = get_page_by_title('press');
+
     $args = array(  
         'post_type' => 'press',
         'post_status' => 'publish',
@@ -29,7 +29,7 @@ get_header();
         <h2 class="title has-text-centered">Press</h2>
         
         <div class="content">
-
+            <?php echo $press_page->post_content; ?>
         </div>
         <div class="flourish-divider"></div>
     <div class="columns is-multiline">
