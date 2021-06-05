@@ -8,9 +8,11 @@
  * @package Women_Owned_Wineries_Sonoma
  */
 
-// echo '<pre class="white text">';var_dump( $search );echo '</pre>';
-
 get_header();
+
+$search_page = get_page_by_title('search');
+
+// echo '<pre class="white text">';var_dump( $search_page );echo '</pre>';
 ?>
 
 <section class="directory header section">
@@ -18,6 +20,10 @@ get_header();
 		<h2 class="title">
 			Directory
 		</h2>
+
+		<div class="content">
+			<?php echo $search_page->post_content; ?>
+		</div>
 
 		<?php get_search_form(); ?>
 

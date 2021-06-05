@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Interviews
+ * Template Name: Featured Bottles
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,10 +10,10 @@
 
 get_header();
 
-/**
- * Setup query to show the ‘services’ post type with ‘8’ posts.
- * Output the title with an excerpt.
- */
+$feat_bottles_page = get_page_by_title('featured bottles');
+
+// echo '<pre class="white text">';var_dump( $feat_bottles_page );echo '</pre>';
+
 $args = array(
     'post_type' => 'featured-bottles',
     'post_status' => 'publish',
@@ -28,7 +28,7 @@ $interviews = new WP_Query($args); ?>
     <div class="container">
         <h2 class="title">Featured Bottles</h2>
         <div class="content">
-            <?php the_field('description', 'featured-bottles-theme') ?>
+            <?php echo $feat_bottles_page->post_content; ?>
         </div>
         <div class="flourish-divider">
             <?php echo file_get_contents(get_stylesheet_directory() . '/img/flourish.svg'); ?>

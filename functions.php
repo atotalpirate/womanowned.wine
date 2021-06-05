@@ -8,10 +8,6 @@
  * @package Women_Owned_Wineries_Sonoma
  */
 
-if (!defined('_S_VERSION')) {
-	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '1.0.0');
-}
 
 if (!function_exists('women_owned_wineries_sonoma_setup')) :
 	/**
@@ -145,7 +141,7 @@ add_action('widgets_init', 'women_owned_wineries_sonoma_widgets_init');
  */
 function women_owned_wineries_sonoma_scripts()
 {
-	wp_enqueue_style('women-owned-wineries-sonoma-style', get_stylesheet_uri(), array(), _S_VERSION);
+	wp_enqueue_style('women-owned-wineries-sonoma-style', get_stylesheet_uri(), array(), false);
 	wp_style_add_data('women-owned-wineries-sonoma-style', 'rtl', 'replace');
 
 	wp_enqueue_script('site', get_template_directory_uri() . '/js/site.js', array('jquery'), true);
@@ -189,15 +185,14 @@ add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
 // More attractive ellipsis
 
-function pretty_ellipsis($more)
-{
+function pretty_ellipsis() {
 	return '...';
 }
 add_filter('excerpt_more', 'pretty_ellipsis');
 
 // Change the_excerpt_length
 
-function custom_excerpt_length($length) {
+function custom_excerpt_length() {
 	return 20;
 }
 add_filter('excerpt_length', 'custom_excerpt_length', 999);
@@ -211,7 +206,7 @@ function post_remove () {
 add_action('admin_menu', 'post_remove');   //adding action for triggering function call
 
 // Sanitize phone numbers
-function sanitize_phone( $phone, $international = false ) {
+function sanitize_phone( $phone ) {
 	$format = "/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/";
 	
 	$alt_format = '/^(\+\s*)?((0{0,2}1{1,3}[^\d]+)?\(?\s*([2-9][0-9]{2})\s*[^\d]?\s*([2-9][0-9]{2})\s*[^\d]?\s*([\d]{4})){1}(\s*([[:alpha:]#][^\d]*\d.*))?$/';
@@ -255,8 +250,9 @@ add_filter( 'pre_get_posts','abc_search' );
 // All search results
 
 function change_wp_search_size($query) {
-    if ( $query->is_search ) // Make sure it is a search page
-        $query->query_vars['posts_per_page'] = -1; // Change 10 to the number of posts you would like to show
+    if ( $query->is_search ) {
+		$query->query_vars['posts_per_page'] = -1; // Change 10 to the number of posts you would like to show
+	}
 
     return $query; // Return our modified query variables
 }
@@ -287,52 +283,3 @@ add_filter( 'searchwp\source\post\attributes\meta', function( $meta_value, $args
 
 	return $meta_value;
 }, 20, 2 );
-
-
-//options pages
-if (function_exists('acf_add_options_page')) {
-
-	acf_add_options_page(array(
-		'page_title' 	=> 'Global Settings',
-		'menu_title'	=> 'Global Settings',
-		'menu_slug' 	=> 'global-settings',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false,
-		'post_id'		=> 'theme',
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Winery Archive Settings',
-		'menu_title'	=> 'Wineries',
-		'parent_slug'	=> 'global-settings',
-		'post_id'		=> 'wineries-theme',
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Featured Bottles Archive Settings',
-		'menu_title'	=> 'Featured Bottles',
-		'parent_slug'	=> 'global-settings',
-		'post_id'		=> 'featured-bottles-theme',
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Interview Archive Settings',
-		'menu_title'	=> 'Interviews',
-		'parent_slug'	=> 'global-settings',
-		'post_id'		=> 'interviews-theme',
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Team Member Settings',
-		'menu_title'	=> 'Team Members',
-		'parent_slug'	=> 'global-settings',
-		'post_id'		=> 'team-members-theme',
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Wine Club Settings',
-		'menu_title'	=> 'Wine Clubs',
-		'parent_slug'	=> 'global-settings',
-		'post_id'		=> 'wine-club-theme',
-	));
-}
