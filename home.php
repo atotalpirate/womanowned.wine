@@ -50,22 +50,29 @@ $loop = new WP_Query( $args ); ?>
                 $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); ?>
 
             <a href="<?php echo $url; ?>" class="column is-one-third">
-                <div class="card interview">
+                
+                <div class="image-tile interview">
+                    
                     <span class="tag is-link is-medium">
                         Interview
                     </span>
-                    <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
-                    <div class="card-content has-text-white">
+
+                    <div class="bg" style="background-image: url(<?php echo $image; ?>);"></div>
+                    
+                    <div class="content has-text-white">
                         
                         <h1 class="title is-3"><?php echo $title; ?></h1>
+
                         <div class="meta">
                             <span>Posted on <?php echo $date; ?></span>
                         </div>
-                        <div class="content has-text-white">
+
+                        <div class="has-text-white">
                             <?php the_excerpt(); ?>
                         </div>
                     </div>
                 </div>
+                
             </a>
 
             <?php endif; 
@@ -77,7 +84,7 @@ $loop = new WP_Query( $args ); ?>
                 $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); ?>
 
             <a href="<?php echo $url; ?>" class="column is-one-third">
-                <div class="card featured-bottle">
+                <div class="image-tile featured-bottle">
                     <span class="tag is-link is-medium">
                         Featured Bottle
                     </span>

@@ -53,7 +53,7 @@ $description = get_field('description', 'wine-club-theme');
                 ?>
 
                     <a href="<?php echo $link . '?clubId=' . $clubID; ?>" class="column is-one-third">
-                        <div class="card wine-club">
+                        <div class="image-tile wine-club">
                             <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
                             <div class="card-content has-text-white">
                                 <h1 class="title "><?php echo $title; ?></h1>

@@ -134,8 +134,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	z-index: 100000;
 }
 
-@charset "utf-8";
-
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Abril+Fatface&family=Josefin+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 
@@ -215,6 +213,7 @@ $sans-serif: 'Josefin Sans', sans-serif;
 @import "home.scss";
 @import "testimonials.scss";
 @import "cards.scss";
+@import "image-tiles.scss";
 @import "people.scss";
 @import "purpose.scss";
 @import "wine-club.scss";

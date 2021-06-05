@@ -44,7 +44,7 @@ $interviews = new WP_Query($args); ?>
                     $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>
 
                     <a href="<?php echo $url; ?>" class="column is-one-third">
-                        <div class="card featured-bottle">
+                        <div class="image-tile featured-bottle">
                             <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
                             <div class="card-content has-text-white">
                                 <h1 class="title "><?php echo $title; ?></h1>
