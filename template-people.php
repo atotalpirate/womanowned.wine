@@ -10,19 +10,19 @@
 
 // $title
 
-get_header();
+get_header(); 
 
-$title = get_the_title();
-$description = get_the_content(); ?>
+$content = get_the_content();
+$content_length = strlen($content); ?>
 
 
 
 <section class="section people">
     <div class="container">
-        <h1 class="title"><?php echo $title; ?></h1>
+        <h1 class="title"><?php the_title(); ?></h1>
 
-        <div class="content">
-            <?php echo $description; ?>
+        <div class="content <?php ($content_length > 500) ? 'has-two-columns' : '' ; ?>">
+            <?php echo the_content(); ?>
         </div>
 
         <div class="flourish-divider">

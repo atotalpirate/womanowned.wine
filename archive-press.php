@@ -12,6 +12,9 @@ get_header();
 
 $press_page = get_page_by_title('press');
 
+$content = $press_page->post_content;
+$content_length = strlen($content);
+
     $args = array(  
         'post_type' => 'press',
         'post_status' => 'publish',
@@ -28,10 +31,12 @@ $press_page = get_page_by_title('press');
     <div class="container">
         <h2 class="title has-text-centered">Press</h2>
         
-        <div class="content">
-            <?php echo $press_page->post_content; ?>
+        <div class="content <?php ($content_length > 500) ? 'has-two-columns' : '' ; ?>"> 
+            <?php echo $content; ?>
         </div>
-        <div class="flourish-divider"></div>
+        <div class="flourish-divider">
+            <?php echo file_get_contents(get_stylesheet_directory() . '/img/flourish.svg'); ?>
+        </div>
     <div class="columns is-multiline">
     <?php while ($press->have_posts()) : $press->the_post();
                     $title = get_the_title();

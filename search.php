@@ -9,11 +9,12 @@
  */
 
 get_header();
+// echo '<pre class="white text">';var_dump( $search_page );echo '</pre>';
 
 $search_page = get_page_by_title('search');
 
-// echo '<pre class="white text">';var_dump( $search_page );echo '</pre>';
-?>
+$content = $search_page->post_content;
+$content_length = strlen($content); ?>
 
 <section class="directory header section">
 	<div class="container">
@@ -21,8 +22,8 @@ $search_page = get_page_by_title('search');
 			Directory
 		</h2>
 
-		<div class="content">
-			<?php echo $search_page->post_content; ?>
+		<div class="content <?php ($content_length > 500) ? 'has-two-columns' : '' ; ?>">
+			<?php echo $content; ?>
 		</div>
 
 		<?php get_search_form(); ?>
@@ -46,7 +47,6 @@ $search_page = get_page_by_title('search');
 					<?php while (have_posts()) : the_post(); ?>
 
 						<?php
-						// echo '<pre class="white text">';var_dump( $address['state'] );echo '</pre>';
 						$featured = get_field('featured');
 						$proprietor = get_field('proprietor');
 						$ownership = get_field('ownerrship');
@@ -67,17 +67,12 @@ $search_page = get_page_by_title('search');
 									<a href="<?php the_permalink(); ?>">
 										<div class="card-image">
 											<figure class="image is-4by3">
-												<img class="" src="<?php echo $logo; ?>">
+												<img class="" alt="image for <?php the_title(); ?>" title="<?php the_title(); ?>" src="<?php echo $logo; ?>">
 											</figure>
 										</div>
 									</a>
 									<div class="card-content">
 										<a href="<?php the_permalink(); ?>" class="media">
-											<div class="media-left">
-												<!-- <figure class="image is-48x48">
-											<img src="https://bulma.io/images/placeholders/96x96.png" class="is-rounded" alt="Placeholder image">
-										</figure> -->
-											</div>
 											<div class="media-content">
 
 												<?php if ($wben) : ?>
@@ -107,13 +102,13 @@ $search_page = get_page_by_title('search');
 													echo ($zip) ? '<span>' . $zip . '</span>' : '';
 													echo '</li>';
 												} elseif ($city && $state) {
-													echo '<li>';
-													echo '<span class="icon"><i class="fas fa-map-marker-alt"></i></span>';
-													echo ($street) ? '<span>' . $street . '</span><br>' : '';
-													echo ($city) ? '<span>' . $city . '</span>' : '';
-													echo ($state) ? '<span>' . $state['value'] . '</span>' : '';
-													echo ($zip) ? '<span>' . $zip . '</span>' : '';
-													echo '</li>';
+														echo '<li>';
+														echo '<span class="icon"><i class="fas fa-map-marker-alt"></i></span>';
+														echo ($street) ? '<span>' . $street . '</span><br>' : '';
+														echo ($city) ? '<span>' . $city . '</span>' : '';
+														echo ($state) ? '<span>' . $state['value'] . '</span>' : '';
+														echo ($zip) ? '<span>' . $zip . '</span>' : '';
+														echo '</li>';
 												}
 												?>
 
@@ -138,7 +133,6 @@ $search_page = get_page_by_title('search');
 				<div class="not-featured columns is-variable is-8 is-multiline">
 					<?php while (have_posts()) : the_post(); 
 					
-						// echo '<pre class="white text">';var_dump( $address['state'] );echo '</pre>';
 						$featured = get_field('featured');
 						$proprietor = get_field('proprietor');
 						$ownership = get_field('ownerrship');

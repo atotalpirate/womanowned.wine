@@ -12,6 +12,9 @@ get_header();
 
 $interviews_page = get_page_by_title('interviews');
 
+$content = $interviews_page->post_content;
+$content_length = strlen($content);
+
 $args = array(
     'post_type' => 'interviews',
     'post_status' => 'publish',
@@ -25,8 +28,8 @@ $interviews = new WP_Query($args); ?>
 <section class="interviews section">
     <div class="container">
         <h2 class="title">Interviews</h2>
-        <div class="content">
-            <?php echo $interviews_page->post_content; ?>
+        <div class="content <?php ($content_length > 500) ? 'has-two-columns' : '' ; ?>">
+            <?php echo $content; ?>
         </div>
         <div class="flourish-divider">
             <?php echo file_get_contents(get_stylesheet_directory() . '/img/flourish.svg'); ?>

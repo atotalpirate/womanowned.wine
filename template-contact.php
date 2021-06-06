@@ -11,8 +11,7 @@
 get_header(); 
 
 $content = get_the_content();
-$content_length = strlen($content);
-?>
+$content_length = strlen($content); ?>
 
 
 <section class="section contact">
