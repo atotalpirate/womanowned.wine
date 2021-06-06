@@ -10,6 +10,7 @@
  */
 
 get_header();
+// echo '<pre class="white text">';var_dump( $post );echo '</pre>';
 
 $args = array(  
     'post_type' => array('interviews', 'featured-bottles'),
@@ -18,8 +19,6 @@ $args = array(
     'orderby' => 'title', 
     'order' => 'ASC', 
 );
-
-// echo '<pre class="white text">';var_dump(  );echo '</pre>';
 
 $loop = new WP_Query( $args ); ?>
 
@@ -30,19 +29,15 @@ $loop = new WP_Query( $args ); ?>
         </h1>
 
         <?php 
-            if ( $page_id = get_option( 'page_for_posts' ) ) {
-                // the_content() doesn't accept a post ID parameter
-                if ( $post = get_post( $page_id ) ) {
-                    setup_postdata( $post ); //  "posts" page is now current post for most template tags        
-                    the_content();
-                    wp_reset_postdata(); // So everything below functions as normal
-                }
+            if ( ($page_id = get_option( 'page_for_posts' )) && ($post = get_post( $page_id )) ) {
+                setup_postdata( $post ); //  "posts" page is now current post for most template tags        
+                the_content();
+                wp_reset_postdata(); // So everything below functions as normal
             }
         ?>
 
         <div class="columns is-multiline">
         <?php while ( $loop->have_posts() ) : $loop->the_post(); 
-            // echo '<pre class="white text">';var_dump( $post );echo '</pre>';
             if ($post->post_type == 'interviews') : 
                 $title = get_the_title();
                 $url = get_the_permalink();
@@ -51,27 +46,20 @@ $loop = new WP_Query( $args ); ?>
 
             <a href="<?php echo $url; ?>" class="column is-one-third">
                 
-                <div class="image-tile interview">
-                    
-                    <span class="tag is-link is-medium">
+            <div class="image-tile interview">
+
+            <span class="tag is-link is-medium">
                         Interview
                     </span>
-
-                    <div class="bg" style="background-image: url(<?php echo $image; ?>);"></div>
-                    
-                    <div class="content has-text-white">
-                        
-                        <h1 class="title is-3"><?php echo $title; ?></h1>
-
-                        <div class="meta">
-                            <span>Posted on <?php echo $date; ?></span>
+                            
+                            <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
+                            <div class="content has-text-white">
+                                <div class="meta">
+                                    <span><?php echo $date; ?></span>
+                                </div>
+                                <h1 class="title "><?php echo $title; ?></h1>
+                            </div>
                         </div>
-
-                        <div class="has-text-white">
-                            <?php the_excerpt(); ?>
-                        </div>
-                    </div>
-                </div>
                 
             </a>
 
@@ -79,26 +67,26 @@ $loop = new WP_Query( $args ); ?>
 
             if ($post->post_type == 'featured-bottles') : 
                 $title = get_the_title();
+                $vintage = get_field('vintage');
+                $vineyard = get_field('vineyard');
                 $url = get_the_permalink();
                 $date = get_the_date();
                 $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); ?>
 
             <a href="<?php echo $url; ?>" class="column is-one-third">
+
                 <div class="image-tile featured-bottle">
-                    <span class="tag is-link is-medium">
+                <span class="tag is-link is-medium">
                         Featured Bottle
                     </span>
-                    <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
-                    <div class="card-content has-text-white">
-                        <h1 class="title is-3"><?php echo $title; ?></h1>
-                        <div class="meta">
-                            <span>Posted on <?php echo $date; ?></span>
+                            <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
+                            <div class="content has-text-white">
+                                <span><?php echo $vintage; ?></span>
+                                <h1 class="title"><?php echo $title; ?></h1>
+                                <h1 class="vineyard"><?php echo $vineyard; ?></h1>
+                            </div>
                         </div>
-                        <div class="content has-text-white">
-                            <?php the_excerpt(); ?>
-                        </div>
-                    </div>
-                </div>
+
             </a>
 
             <?php endif; ?>

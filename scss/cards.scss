@@ -1,6 +1,6 @@
 .card {
     overflow: hidden;
-    border-radius: 1.5rem 1.5rem 2.5rem 2.5rem;
+    border-radius: 1.5rem;
     @extend .z3, .elevation-transition;
     &:hover {
         @extend .z5;
@@ -31,16 +31,7 @@
                 top: 0;
                 left: 0;
                 z-index: 1;
-                // background: linear-gradient(18deg, 
-                //                             rgba(240,164,137,1) 0%,
-                //                             rgba(255,255,255,0.2763480392156863) 75%, 
-                //                             rgba(157, 217, 210, 0.43) 100%
-                //                             );
-                background: linear-gradient(18deg, 
-                                            rgba(240,164,137,1) 15%,
-                                            rgba(255,255,255,0.2763480392156863) 75%, 
-                                            rgba(157, 217, 210, 0.43) 100%
-                                            );
+                @extend .bg-gradient;
                 
             }
             .title {
@@ -97,6 +88,70 @@
                     @extend .z5;
                 }
             }
+        }
+    }
+}
+
+.winery.card {
+    display: block;
+    &:hover {
+        a.overlay-button {
+            display: block;
+        }
+    }
+    &:after {
+        content: "";
+        display: none;
+    }
+    .card-image {
+        display: block;
+        border-bottom: 1px solid rgba($secondary, 0.05);
+        background-color: rgba($secondary,0.05);
+        img {
+            object-fit: cover;
+        }
+        a.overlay-button {
+            display: none;
+        }
+    }
+    .card-content {
+        .media {
+            margin-left: 0.7rem;
+            .title {
+                font-weight: bold;
+                color: $text;
+                font-family: $sans-serif;
+                font-size: 1.25rem;
+            }
+        }
+    }
+    .content {
+        ul.address {
+            list-style: none;
+            margin: 0;
+            li {
+                margin-left: 1.75rem;
+                span.icon {
+                    position: absolute;
+                    left: 0;
+                }
+                span:not(.icon) {
+                    display: inline;
+                    &:after {
+                        content: ', ';
+                    }
+                    &:last-of-type {
+            
+                        &:after {
+                            content: '.';
+                        }
+                    }
+                }
+            }
+        }
+        ul {
+            min-height: 3rem;
+            list-style: none;
         }
     }
 }

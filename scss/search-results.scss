@@ -94,12 +94,6 @@
             color: $text;
         }
     }
-    ul {
-        position: relative;
-        span.icon {
-            opacity: 0.33;
-        }
-    }
     .not-featured {
         .column {
             padding-bottom: 2rem;
@@ -118,6 +112,10 @@
 ul.address {
     list-style: none;
     margin: 0;
+    position: relative;
+    span.icon {
+        opacity: 0.33;
+    }
     li {
         margin-left: 1.75rem;
         span.icon {

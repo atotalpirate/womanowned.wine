@@ -15,6 +15,11 @@ body {
   background-image: url(/wp-content/themes/women-owned-wineries-sonoma/img/black-felt-10percent.png);
 }
 
+.bg-gradient {
+  background: linear-gradient(18deg, $primary 20%, #ffa28152 75%, #67e3d447 100%);
+                            
+}
+
 .meta,
 .content,
 .accordion {

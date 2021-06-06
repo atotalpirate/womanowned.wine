@@ -16,6 +16,12 @@ $content = get_the_content();
 $quote = get_field('quote');
 $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 $featured_image_caption = get_field('featured_image_caption');
+
+$winery = get_field('winery');
+$winery_id = $winery->ID;
+$vintner = get_field('proprietor', $winery_id);
+$count = 0;
+
 ?>
 
 <section class="section feature">
@@ -28,6 +34,7 @@ $featured_image_caption = get_field('featured_image_caption');
                     <div class="intro tile is-parent is-vertical">
                         <article class="tile is-child">
                             <h1 class="title"><?php echo $title; ?></h1>
+                            <h2 class="title"><?php echo $vintner; ?></h2>
                             <p class="date">Posted on <?php echo $date; ?></p>
                             <div class="content">
                                 <?php the_content(); ?>
@@ -68,8 +75,118 @@ $featured_image_caption = get_field('featured_image_caption');
                 $photo = get_sub_field('photo');
                 $photo_caption = get_sub_field('photo_caption');
                 $block_quote = get_sub_field('block_quote');
-                $counter++; ?>
+                $counter++;
+                
+                if ($count == 0) : ?>
+                    
+                    <?php if ($block_quote) : ?>
+                        <div class="block-quote columns">
+                            <div class="column is-full">
+                                <h2><?php echo $block_quote; ?></h2>
+                            </div>
+                        </div>
+                    <?php endif; ?>
 
+                    <?php if ($photo || $title || $content) : ?>
+                        <div class="segment columns is-multiline">
+
+                            <div class="column is-half">
+
+                                <div class="segment-title <?php echo ($title_format == 'question') ? 'has-text-right' : 'has-text-left'; ?>">
+                                    <p class="has-text-weight-bold"><?php echo $title; ?></p>
+                                </div>
+                                <div>
+                                    <div class="answer content">
+                                        <?php echo $content; ?>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="figure column is-one-third">
+                                <div class="sticky">
+                                <?php
+                        $title = get_the_title($winery_id);
+						$proprietor = get_field('proprietor', $winery_id);
+						$ownership = get_field('ownerrship', $winery_id);
+						$wben = get_field('wben_certified', $winery_id);
+						$street = get_field('street', $winery_id);
+						$city = get_field('city', $winery_id);
+						$state = get_field('state', $winery_id);
+						$zip = get_field('zip', $winery_id);
+						$phone = get_field('phone_number', $winery_id);
+						$website = get_field('website', $winery_id);
+						$logo = wp_get_attachment_url(get_post_thumbnail_id($winery_id));
+
+						if ($winery_id) : ?>
+
+								<div class="winery card">
+									<a href="<?php the_permalink(); ?>">
+										<div class="card-image">
+											<figure class="image is-4by3">
+												<img class="" alt="image for <?php the_title(); ?>" title="<?php the_title(); ?>" src="<?php echo $logo; ?>">
+											</figure>
+										</div>
+									</a>
+									<div class="card-content">
+										<a href="<?php the_permalink(); ?>" class="media">
+											<div class="media-content">
+
+												<?php if ($wben) : ?>
+													<span class="icon verified is-medium">
+														<span class="fa-stack fa-sm">
+															<i class="fas fa-certificate fa-stack-2x has-text-info"></i>
+															<i class="fas fa-check fa-stack-1x has-text-white"></i>
+															<p class="has-text-info">WBENC</p>
+														</span>
+													</span>
+												<?php endif; ?>
+
+												<h3 class="title is-5"><?php echo $title; ?></h3>
+												<?php echo ($proprietor) ? '<p class="subtitle is-5">' . $proprietor . '</p>' : ''; ?>
+											</div>
+										</a>
+
+										<div class="content">
+											<ul class="address">
+												<?php
+												if ($street && $city && $state) {
+													echo '<li>';
+													echo '<span class="icon"><i class="fas fa-map-marker-alt"></i></span>';
+													echo ($street) ? '<span>' . $street . '</span><br>' : '';
+													echo ($city) ? '<span>' . $city . '</span>' : '';
+													echo ($state) ? '<span>' . $state['value'] . '</span>' : '';
+													echo ($zip) ? '<span>' . $zip . '</span>' : '';
+													echo '</li>';
+												} elseif ($city && $state) {
+														echo '<li>';
+														echo '<span class="icon"><i class="fas fa-map-marker-alt"></i></span>';
+														echo ($street) ? '<span>' . $street . '</span><br>' : '';
+														echo ($city) ? '<span>' . $city . '</span>' : '';
+														echo ($state) ? '<span>' . $state['value'] . '</span>' : '';
+														echo ($zip) ? '<span>' . $zip . '</span>' : '';
+														echo '</li>';
+												}
+												?>
+
+
+											</ul>
+										</div>
+									</div>
+									<footer class="card-footer">
+										<?php echo ($phone) ? '<a class="card-footer-item" href="tel:' . sanitize_phone($phone) . '"><span class="icon"><i class="fas fa-phone"></i></span>' . sanitize_phone($phone) . '<a/>' : ''; ?>
+										<?php echo ($website) ? '<a class="card-footer-item" href="' . $website . '" target=_blank><span class="icon"><i class="fas fa-globe"></i></span>Visit website</a>' : ''; ?>
+									</footer>
+								</div>
+
+						<?php endif; ?>
+                                </div>
+                            </div>
+
+                        </div>
+                    <?php endif; ?>
+                <?php else : ?>
+                    
                 <?php if ($block_quote) : ?>
                     <div class="block-quote columns">
                         <div class="column is-full">
@@ -108,8 +225,10 @@ $featured_image_caption = get_field('featured_image_caption');
 
                     </div>
                 <?php endif; ?>
+                    <?php endif; ?>
 
-            <?php endwhile; ?>
+
+            <?php $count++; endwhile;  ?>
         <?php endif; $counter = 0;  ?>
 
     </div>

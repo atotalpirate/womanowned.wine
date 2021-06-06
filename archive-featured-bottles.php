@@ -41,22 +41,26 @@ $interviews = new WP_Query($args); ?>
 
             <div class="columns is-multiline">
                 <?php while ($interviews->have_posts()) : $interviews->the_post();
+                    $vintage = get_field('vintage');
                     $title = get_the_title();
+                    $date = get_the_date();
+                    $vineyard = get_field('vineyard');
                     $url = get_the_permalink();
                     $date = get_the_date();
-                    $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>
+                    $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
+                    $winery = get_field('featured_winery');
+                    $interview = get_field('interview');
+                    $interview_icon = '<span class="tag is-dark is-medium is-rounded"><span class="icon"><i class="fas fa-comment-dots"></i></span></span>'; 
+                    $winery_icon = '<span class="tag is-dark is-medium is-rounded"><span class="icon"><i class="fas fa-wine-bottle"></i></span></span>';  ?>
+
 
                     <a href="<?php echo $url; ?>" class="column is-one-third">
                         <div class="image-tile featured-bottle">
                             <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
-                            <div class="card-content has-text-white">
-                                <h1 class="title "><?php echo $title; ?></h1>
-                                <div class="meta">
-                                    <span>Posted on <?php echo $date; ?></span>
-                                </div>
-                                <div class="content has-text-white">
-                                    <?php the_excerpt(); ?>
-                                </div>
+                            <div class="content has-text-white">
+                                <span><?php echo $vintage; ?></span>
+                                <h1 class="title"><?php echo $title; ?></h1>
+                                <h1 class="vineyard"><?php echo $vineyard; ?></h1>
                             </div>
                         </div>
                     </a>

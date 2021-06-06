@@ -214,7 +214,7 @@ $wine_club = new WP_Query($args); ?>
                                 </div>
                             </div>
                             <footer class="card-footer">
-                                <span class="featured-title">Featured Bottles</span>
+                                <span class="featured-title">includes</span>
                                 <span class="featured-bottles">
                                     <?php foreach ($featured_bottles as $key => $bottle) :
                                         $bottle_img = wp_get_attachment_url(get_post_thumbnail_id($bottle->ID));
@@ -223,13 +223,12 @@ $wine_club = new WP_Query($args); ?>
                                         $bottle_url = get_the_permalink($bottle->ID);
                                         //  echo '<pre class="white text">';var_dump($bottle_img);echo '</pre>'; 
                                     ?>
-                                        <figure class="image">
-                                            <img class="is-rounded" src="<?php echo $bottle_img; ?>">
-                                        </figure>
+                                        <a href="<?php echo get_the_permalink($bottle->ID); ?>" class="image">
+                                            <img class="is-rounded" alt="Permalink for <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
+                                        </a>
                                     <?php endforeach; ?>
                                 </span>
                                 <a href="#" class="button is-primary is-rounded">
-                                    <span>Shop</span>
                                     <span class="icon is-small">
                                         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                                     </span>
