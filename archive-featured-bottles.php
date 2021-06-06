@@ -12,6 +12,9 @@ get_header();
 
 $feat_bottles_page = get_page_by_title('featured bottles');
 
+$content = $feat_bottles_page->post_content;
+$content_length = strlen($content);
+
 // echo '<pre class="white text">';var_dump( $feat_bottles_page );echo '</pre>';
 
 $args = array(
@@ -27,8 +30,8 @@ $interviews = new WP_Query($args); ?>
 <section class="interviews section">
     <div class="container">
         <h2 class="title">Featured Bottles</h2>
-        <div class="content">
-            <?php echo $feat_bottles_page->post_content; ?>
+        <div class="content <?php ($content_length > 500) ? 'has-two-columns' : '' ; ?>"> 
+            <?php echo $content; ?>
         </div>
         <div class="flourish-divider">
             <?php echo file_get_contents(get_stylesheet_directory() . '/img/flourish.svg'); ?>

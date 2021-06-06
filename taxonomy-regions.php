@@ -13,14 +13,22 @@ get_header();
 
 $description = get_the_archive_description();
 
-// echo '<pre class="white text">';var_dump( $page );echo '</pre>';
-?>
+// echo '<pre class="white text">';var_dump( $page );echo '</pre>'; 
+
+$content = term_description();
+$content_length = strlen($content); ?>
 
 <section class="section regions">
     <div class="container">
         <h1 class="title">
             <?php echo $term; ?>
         </h1>
+
+        <?php if ($content) : ?> 
+            <div class="content <?php ($content_length > 500) ? 'has-two-columns' : '' ; ?>">
+                <?php echo $content; ?>
+            </div>
+        <?php endif; ?>
 
         <div class="columns">
         <?php foreach ($posts as $key => $post) : 
@@ -31,7 +39,7 @@ $description = get_the_archive_description();
                 $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); ?>
 
             <a href="<?php echo $url; ?>" class="column is-one-third">
-                <div class="card">
+                <div class="image-tile">
                     <span class="tag is-link is-medium">
                         Interview
                     </span>
@@ -57,7 +65,7 @@ $description = get_the_archive_description();
                 $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); ?>
 
             <a href="<?php echo $url; ?>" class="column is-one-third">
-                <div class="card featured-bottle">
+                <div class="image-tile featured-bottle">
                     <span class="tag is-link is-medium">
                         Featured Bottle
                     </span>

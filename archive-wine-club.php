@@ -9,11 +9,6 @@
 
 get_header();
 
-/**
- * Setup query to show the ‘services’ post type with ‘8’ posts.
- * Output the title with an excerpt.
- */
-
 $args = array(
     'post_type' => 'wine-club',
     'post_status' => 'publish',
@@ -21,18 +16,20 @@ $args = array(
     'order' => 'DESC'
 );
 
-$interviews = new WP_Query($args); ?>
+$wine_club_page = get_page_by_title('wine club');
 
-<?php
-$description = get_field('description', 'wine-club-theme');
-?>
+$content = $wine_club_page->post_content;
+$content_length = strlen($content);
+
+$interviews = new WP_Query($args); ?>
 
 <section class="interviews section">
     <div class="container">
         <h2 class="title">Thirsty for change? <br>Join the Club!</h2>
-        <?php if ($description) : ?>
-            <div class="content">
-                <?php echo $description; ?>
+        
+        <?php if ($content) : ?>
+            <div class="content <?php ($content_length > 500) ? 'has-two-columns' : '' ; ?>"> 
+                <?php echo $content; ?>
             </div>
         <?php endif; ?>
 

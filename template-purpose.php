@@ -12,15 +12,16 @@
 
 $homeID = get_option('page_on_front');
 
-get_header(); ?>
+get_header();
 
-
+$content = get_the_content();
+$content_length = strlen($content); ?>
 
 <section class="section purpose">
     <div class="container">
         <h1 class="title"><?php the_title(); ?></h1>
 
-        <div class="content">
+        <div class="content <?php ($content_length > 500) ? 'has-two-columns' : '' ; ?>">
             <?php the_content(); ?>
         </div>
 

@@ -13,7 +13,8 @@ $search_page = get_page_by_title('search');
 // echo '<pre class="white text">';var_dump( $search );echo '</pre>';
 
 get_header();
-?>
+$content = $search_page->post_content;
+$content_length = strlen($content); ?>
 
 <section class="directory header section">
 	<div class="container">
@@ -21,8 +22,8 @@ get_header();
 			Directory
 		</h2>
 
-		<div class="content">
-			<?php echo $search_page->post_content; ?>
+		<div class="content <?php ($content_length > 500) ? 'has-two-columns' : '' ; ?>"> 
+			<?php echo $content; ?>
 		</div>
 
 		<?php get_search_form(); ?>
