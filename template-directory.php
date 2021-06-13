@@ -8,7 +8,7 @@
  */
 
 
-$search_page = get_page_by_title('search');
+$search_page = get_page_by_path('search');
 
 // echo '<pre class="white text">';var_dump( $search );echo '</pre>';
 

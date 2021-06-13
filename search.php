@@ -11,7 +11,7 @@
 get_header();
 // echo '<pre class="white text">';var_dump( $search_page );echo '</pre>';
 
-$search_page = get_page_by_title('search');
+$search_page = get_page_by_path('search');
 
 $content = $search_page->post_content;
 $content_length = strlen($content); ?>

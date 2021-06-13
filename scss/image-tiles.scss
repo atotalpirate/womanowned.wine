@@ -78,10 +78,17 @@
     }
     &.interview {
         .meta {
-            margin-bottom: -1rem;
         }
         .title {
+            font-family: $sans-serif;
             font-size: 1.75rem;
+            margin:0;
+        }
+        .vintner {
+            font-family: $sans-serif;
+            font-size: 1.75rem;
+            margin:0;
+            color: rgba($white, 0.66);
         }
         &:after {
             content:"";

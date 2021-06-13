@@ -10,7 +10,7 @@
 
 get_header();
 
-$feat_bottles_page = get_page_by_title('featured bottles');
+$feat_bottles_page = get_page_by_path('featured bottles');
 
 $content = $feat_bottles_page->post_content;
 $content_length = strlen($content);

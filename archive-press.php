@@ -10,7 +10,7 @@
 
 get_header(); 
 
-$press_page = get_page_by_title('press');
+$press_page = get_page_by_path('press');
 
 $content = $press_page->post_content;
 $content_length = strlen($content);

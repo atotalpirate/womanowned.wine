@@ -16,16 +16,18 @@ $args = array(
     'order' => 'DESC'
 );
 
-$wine_club_page = get_page_by_title('wine club');
+$wine_club_page = get_page_by_path('wine-club');
 
 $content = $wine_club_page->post_content;
 $content_length = strlen($content);
+$title = get_the_title( $wine_club_page->ID );
+// echo '<pre class="white text">';var_dump( $wine_club_page->ID );echo '</pre>';
 
 $interviews = new WP_Query($args); ?>
 
 <section class="interviews section">
     <div class="container">
-        <h2 class="title">Thirsty for change? <br>Join the Club!</h2>
+        <h2 class="title"><?php echo $title; ?></h2>
         
         <?php if ($content) : ?>
             <div class="content <?php ($content_length > 500) ? 'has-two-columns' : '' ; ?>"> 
@@ -40,6 +42,7 @@ $interviews = new WP_Query($args); ?>
         <?php if ($interviews->have_posts()) : ?>
 
             <div class="columns is-multiline">
+                <?php while ($interviews->have_posts()) : $interviews->the_post(); $count++; endwhile; ?>
                 <?php while ($interviews->have_posts()) : $interviews->the_post();
                     $title = get_the_title();
                     $date = get_the_date();
@@ -49,17 +52,45 @@ $interviews = new WP_Query($args); ?>
                     $excerpt = get_the_excerpt();
                 ?>
 
-                    <a href="<?php echo $link . '?clubId=' . $clubID; ?>" class="column is-one-third">
-                        <div class="image-tile wine-club">
-                            <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
-                            <div class="card-content has-text-white">
-                                <h1 class="title "><?php echo $title; ?></h1>
-                                <div class="content has-text-white">
+                    <div class="column <?php echo ($count > 2) ? 'is-one-third' : 'is-half'; ?>">
+                        <div class="card wine-club">
+                            <a href="<?php echo $link . '?clubId=' . $clubID; ?>" class="card-image">
+                                <?php if ($end_date) : ?>
+                                    <div class="tag is-medium is-rounded">Ends on <?php echo $end_date; ?></div>
+                                <?php endif; ?>
+                                <figure class="image is-4by3">
+                                    <img src="<?php echo $image; ?>" alt="<?php echo $image_alt; ?>" title="<?php echo $image_title; ?>">
+                                </figure>
+                                <p class="title"><?php echo $title; ?></p>
+                            </a>
+                            <div class="card-content">
+                                <div class="content">
                                     <?php echo $excerpt; ?>
                                 </div>
                             </div>
+                            <footer class="card-footer">
+                                <span class="featured-title">includes</span>
+                                <span class="featured-bottles">
+                                    <?php foreach ($featured_bottles as $key => $bottle) :
+                                        $bottle_img = wp_get_attachment_url(get_post_thumbnail_id($bottle->ID));
+                                        $bottle_title = get_the_title($bottle->ID);
+                                        $bottle_term = wp_get_post_terms($bottle->ID, 'varietals');
+                                        $bottle_url = get_the_permalink($bottle->ID);
+                                        //  echo '<pre class="white text">';var_dump($bottle_img);echo '</pre>'; 
+                                    ?>
+                                        <a href="<?php echo get_the_permalink($bottle->ID); ?>" class="image">
+                                            <img class="is-rounded" alt="Permalink for <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
+                                        </a>
+                                    <?php endforeach; ?>
+                                </span>
+                                <a href="#" class="button is-primary is-rounded">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </footer>
                         </div>
-                    </a>
+                    </div>
                 <?php endwhile; ?>
             </div>
     </div>

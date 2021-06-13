@@ -111,9 +111,9 @@ if (window.location.pathname === '/' && window.location.search === '') {
       localStorage.setItem("subscribed", "false");
     }
 
-    if (sessionStorage.getItem("opt_out") == null) {
-      sessionStorage.setItem("opt_out", "false");
-    }
+    // if (sessionStorage.getItem("opt_out") == null) {
+    //   sessionStorage.setItem("opt_out", "false");
+    // }
 
     // subscribe wall if on search results page or single winery page
     if (window.location.search || (window.location.pathname.indexOf("/wineries/") != -1)) {
@@ -122,13 +122,12 @@ if (window.location.pathname === '/' && window.location.search === '') {
 
       // check if either key is true and move if there is a true
       if (
-        sessionStorage.getItem("opt_out") == "true" ||
+        // sessionStorage.getItem("opt_out") == "true" ||
         localStorage.getItem("subscribed") == "true"
-        ) {
-      } else {
+        ) {} else {
         // show subscribe wall if both are false
         if (
-          sessionStorage.getItem("opt_out") == "false" ||
+          // sessionStorage.getItem("opt_out") == "false" ||
           localStorage.getItem("subscribed") == "false"
           ) {
           subscribeWall.classList.add("is-active");
@@ -138,7 +137,7 @@ if (window.location.pathname === '/' && window.location.search === '') {
 
       document.getElementById("optOut").onclick = function (e) {
         e.preventDefault();
-        sessionStorage.setItem("opt_out", "true");
+        localStorage.setItem("subscribed", "true");
         modalOff();
       }
     } else {
