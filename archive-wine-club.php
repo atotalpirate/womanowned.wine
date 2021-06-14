@@ -48,6 +48,7 @@ $interviews = new WP_Query($args); ?>
                     $date = get_the_date();
                     $link = get_the_permalink();
                     $clubID = get_field('club_id');
+                    $featured_bottles = get_field('featured_bottles');
                     $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
                     $excerpt = get_the_excerpt();
                 ?>
