@@ -82,21 +82,23 @@ $featured_image_caption = get_field('featured_image_caption');
                             <div class="content">
                                 <?php the_content(); ?>
                             </div>
-                            <p class="buttons">
+                            <div class="contact">
                                 <?php echo ($phone) ? '<a href="tel:' . sanitize_phone($phone) . '" class="phone button is-rounded is-outlined"><span class="icon"><i class="fas fa-phone"></i></span>' . sanitize_phone($phone) . '<a/>' : ''; ?>
                                 <?php echo ($website) ? '<a href="' . $website . '" class="website button is-rounded is-outlined" target=_blank><span class="icon"><i class="fas fa-globe"></i></span>Visit website</a>' : ''; ?>
-
+                            </div>
+                            <div class="socials">
                                 <?php if ($social_links['value']) : ?>
-
                                     <?php foreach ($social_links['value'] as $key => $link) : ?>
-                                        <a href="<?php echo $link; ?>" class="social button is-rounded is-outlined" target="_blank">
-                                            <span class="icon is-small">
-                                                <i class="fab fa-<?php echo $key; ?>"></i>
-                                            </span>
-                                        </a>
+                                        <?php if ($link) : ?>
+                                            <a href="<?php echo $link; ?>" class="social is-rounded is-outlined" target="_blank">
+                                                <span class="icon is-small">
+                                                    <i class="fab fa-<?php echo $key; ?>"></i>
+                                                </span>
+                                            </a>
+                                        <?php endif; ?>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
-                            </p>
+                            </div>
                         </article>
                     </div>
                     <div class="tile is-vertical is-parent">
@@ -110,9 +112,12 @@ $featured_image_caption = get_field('featured_image_caption');
                                     <small class="has-text-centered"><?php echo $featured_image_caption; ?></small>
                                 <?php endif; ?>
                             </div>
+                            
                             <div class="tile is-child featured-bottles">
                                 <?php if ($featured_bottles) : ?>
-                                    <h3>Featured Bottles</h3>
+                                    <span>
+                                        <h3 class="featured-title">Featuring</h3>
+                                    </span>
                                         <div class="columns is-multiline">
 
                                         <?php foreach ($featured_bottles as $key => $bottle) :
@@ -120,13 +125,19 @@ $featured_image_caption = get_field('featured_image_caption');
                                             $bottle_title = get_the_title($bottle->ID);
                                             $bottle_term = wp_get_post_terms($bottle->ID, 'varietals');
                                             $bottle_url = get_the_permalink($bottle->ID);
+                                            $bottle_vintage = get_field('vintage', $bottle->ID);
                                         ?>
-                                            <a href="<?php echo $bottle_url; ?>" class="column is-one-third">
-                                                <figure class="image">
-                                                    <img class="is-rounded" alt="photo of <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
-                                                </figure>
-                                                <h3><?php echo $bottle_title; ?></h3>
-                                                <h4><?php echo $bottle_term[0]->name; ?></h4>
+                                            <a href="<?php echo $bottle_url; ?>" class="column is-full columns is-multiline">
+                                                <div class="column is-one-third">
+                                                    <figure class="image">
+                                                        <img class="is-rounded" alt="photo of <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
+                                                    </figure>
+                                                </div>
+                                                <div class="meta column is-two-thirds">
+                                                    <h3 class="vintage"><?php echo $bottle_vintage; ?></h3>
+                                                    <h3><?php echo $bottle_title; ?></h3>
+                                                    <h3><?php echo $bottle_term[0]->name; ?></h3>
+                                                </div>
                                             </a>
                                         <?php endforeach; ?>
                                     </div>

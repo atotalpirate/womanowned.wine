@@ -27,31 +27,62 @@ section.winery {
         font-size: 1.25rem;
         margin-bottom: 1.5rem;
     }
-    .buttons {
+    .socials {
+        margin: 1rem 0;
         .website,
         .phone {
             span.icon {
                 margin-right: 0.25rem !important;
             }
         }
-        .social.button {
-            padding: 1rem;
+        .social {
+            padding: 0.666rem;
         }
     }
     .featured-bottles {
-        > h3 {
-            text-align: center;
-            font-family: $sans-serif;
-            margin: 1rem 0;
+        position: relative;
+        > span {
+            background-color: transparent;
+            border-top: 1px solid #ededed;
+            align-items: stretch;
+            display: flex;
+            position: relative;
+            margin: 3rem 0 1rem;
+            h3 {
+                text-align: center;
+                font-family: $sans-serif;
+                background-color: #f7f5f5;
+                font-family: "Montserrat";
+                width: auto;
+                position: absolute;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                letter-spacing: 7px;
+                white-space: nowrap;
+                padding: 0px 10px 0 15px;
+                text-align: center;
+                color: rgba(81,81,81,0.35);
+            }
+        }
+        .meta {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            h3.vintage {
+                font-weight: light;
+                opacity: 0.4;
+            }
+            h3 {
+                font-weight: bold;
+            }
         }
         .columns {
             h3,h4 {
-                text-align: center;
+                text-align: left;
                 font-family: $sans-serif;
                 margin: 0;
-            }
-            h3 {
-                margin-top: 1rem;
             }
         }
     }

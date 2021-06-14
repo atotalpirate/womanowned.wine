@@ -116,6 +116,18 @@ h6 {
   }
 }
 
+.solo-flourish-divider {
+  position: relative;
+  display: block;
+  height: 3rem;
+  svg {
+    fill: $primary;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+  }
+}
+
 section {
   margin: 0 auto;
   width: 100%;

@@ -24,38 +24,63 @@ $args = array(
     'order' => 'ASC'
 );
 
-$interviews = new WP_Query($args); ?>
+$featured_bottles = new WP_Query($args); ?>
 
 
-<section class="interviews section">
+<section class="section posts">
     <div class="container">
-        <h2 class="title">Featured Bottles</h2>
-        <div class="content <?php ($content_length > 500) ? 'has-two-columns' : '' ; ?>"> 
-            <?php echo $content; ?>
-        </div>
-        <div class="flourish-divider">
-            <?php echo file_get_contents(get_stylesheet_directory() . '/img/flourish.svg'); ?>
-        </div>
 
-        <?php if ($interviews->have_posts()) : ?>
+        <div class="columns is-multiline">
 
-            <div class="columns is-multiline">
-                <?php while ($interviews->have_posts()) : $interviews->the_post();
-                    $vintage = get_field('vintage');
+            <?php while ($featured_bottles->have_posts()) : $featured_bottles->the_post();
+                $count++;
                     $title = get_the_title();
-                    $date = get_the_date();
+                    $content = get_the_excerpt();
+                    $vintage = get_field('vintage');
                     $vineyard = get_field('vineyard');
                     $url = get_the_permalink();
                     $date = get_the_date();
-                    $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
-                    $winery = get_field('featured_winery');
-                    $interview = get_field('interview');
-                    $interview_icon = '<span class="tag is-dark is-medium is-rounded"><span class="icon"><i class="fas fa-comment-dots"></i></span></span>'; 
-                    $winery_icon = '<span class="tag is-dark is-medium is-rounded"><span class="icon"><i class="fas fa-wine-bottle"></i></span></span>';  ?>
+                    $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID)); 
+                    $featured_bottles_page = get_page_by_path('featured-bottles');
+                    $featured_bottles_title = get_the_title($featured_bottles_page->ID);
+                    $featured_bottles_content = $featured_bottles_page->post_content;
+                    
+                    if ($count == 1) : ?>
 
+                    <div class="column is-half">
+                        <h1 class="title"><?php echo $featured_bottles_title; ?></h1>
+                        <div class="solo-flourish-divider">
+                            <?php echo file_get_contents(get_stylesheet_directory() . '/img/solo-flourish.svg'); ?>
+                        </div>
+                        <p class="content"><?php echo $featured_bottles_content; ?></p>
+                    </div>
 
-                    <a href="<?php echo $url; ?>" class="column is-one-third">
+                    <a href="<?php echo $url; ?>" class="column is-half">
+
                         <div class="image-tile featured-bottle">
+                            <span class="tag is-link is-medium">
+                                Featured Bottle
+                            </span>
+                            <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
+                            <div class="content has-text-white">
+                                <span><?php echo $vintage; ?></span>
+                                <h1 class="title"><?php echo $title; ?></h1>
+                                <h1 class="vineyard"><?php echo $vineyard; ?></h1>
+                                <p><?php echo $content; ?></p>
+                            </div>
+                        </div>
+
+                    </a>
+
+                    <?php endif;
+                        if ($count > 1) : ?>
+
+                        <a href="<?php echo $url; ?>" class="column is-one-third">
+
+                        <div class="image-tile featured-bottle">
+                            <span class="tag is-link is-medium">
+                                Featured Bottle
+                            </span>
                             <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
                             <div class="content has-text-white">
                                 <span><?php echo $vintage; ?></span>
@@ -63,16 +88,13 @@ $interviews = new WP_Query($args); ?>
                                 <h1 class="vineyard"><?php echo $vineyard; ?></h1>
                             </div>
                         </div>
-                    </a>
-                <?php endwhile; ?>
-            </div>
+
+                        </a>
+
+                    <?php endif; endwhile; wp_reset_postdata(); ?>
+
+        </div>
     </div>
-<?php else : ?>
-    <div class="empty">
-        <h2 class="subtitle has-text-centered">No bottles yet.</h2>
-    </div>
-<?php endif; ?>
-</div>
 </section>
 
 
