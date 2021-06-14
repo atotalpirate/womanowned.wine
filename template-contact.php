@@ -49,7 +49,7 @@ $content_length = strlen($content); ?>
             <?php echo file_get_contents(get_stylesheet_directory() . '/img/flourish.svg'); ?>
         </div>
 
-        <?php echo do_shortcode('[contact-form-7 id="586" title="Contact Page"]'); ?>
+        <?php echo do_shortcode('[contact-form-7 title="Contact Page"]'); ?>
 
     </div>
 
