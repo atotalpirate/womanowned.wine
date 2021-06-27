@@ -71,12 +71,17 @@ $interviews = new WP_Query($args); ?>
                         if ($count > 1) : ?>
 
                         <a href="<?php echo $url; ?>" class="column is-one-third">
-                            <div class="image-tile interview">
-                                <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>                        
-                                <div class="content has-text-white">
-                                    <span><?php echo $date; ?></span>
-                                    <h1 class="title "><?php echo $title; ?></h1>
-                                    <h1 class="vintner"><?php echo $vintner; ?></h1>
+                            <div class="card-2">
+                                <div class="image-tile interview">
+                                    <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>                        
+                                    <div class="content has-text-white">
+                                        <span><?php echo $date; ?></span>
+                                        <h1 class="title "><?php echo $title; ?></h1>
+                                        <h1 class="vintner"><?php echo $vintner; ?></h1>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <?php echo $content; ?>
                                 </div>
                             </div>
                         </a>
