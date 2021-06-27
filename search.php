@@ -63,7 +63,7 @@ $content_length = strlen($content); ?>
 
 							<div class="column is-one-third">
 
-								<div class="card">
+								<div class="winery card">
 									<a href="<?php the_permalink(); ?>">
 										<div class="card-image">
 											<figure class="image is-4by3">
@@ -78,10 +78,14 @@ $content_length = strlen($content); ?>
 												<?php if ($wben) : ?>
 													<span class="icon verified is-medium">
 														<span class="fa-stack fa-sm">
+															<i class="fas fa-circle fa-stack-2x has-text-info"></i>
+															<i class="fas fa-venus fa-stack-1x fa-inverse"></i>
+														</span>
+														<!-- <span class="fa-stack fa-sm">
 															<i class="fas fa-certificate fa-stack-2x has-text-info"></i>
 															<i class="fas fa-check fa-stack-1x has-text-white"></i>
 															<p class="has-text-info">WBENC</p>
-														</span>
+														</span> -->
 													</span>
 												<?php endif; ?>
 

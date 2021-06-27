@@ -115,8 +115,24 @@
         }
     }
     .card-content {
+        position: relative;
+        .verified {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            p {
+                position: absolute;
+                bottom: -23px;
+                left: 2px;
+                font-size: 7px;
+                font-weight: bold;
+            }
+        }
+        
         .media {
-            margin-left: 0.7rem;
+            .media-content {
+                padding-right: 1.5rem;
+            }
             .title {
                 font-weight: bold;
                 color: $text;
