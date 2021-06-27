@@ -1,13 +1,31 @@
 
 
+.card-2 {
+    border-radius: $radius*4;
+    overflow: hidden;
+    position: relative;
+    @extend .elevation-transition;
+    @extend .z3, .elevation-transition;
+    &:hover {
+        @extend .z5;
+    }
+    .image-tile {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        &:hover {
+            box-shadow: none;
+        }
+    }
+    .footer {
+        padding: 1rem;
+    }
+}
 .image-tile {
     border-radius: $radius*4;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
     position: relative;
-    // @extend .z2;
-    @extend .elevation-transition;
 
     &:before {
         content:'';
@@ -77,8 +95,6 @@
         }
     }
     &.interview {
-        .meta {
-        }
         .title {
             font-family: $sans-serif;
             font-size: 1.75rem;
