@@ -74,7 +74,7 @@
 .masthead {
   min-height: 70vh;
   @include mobile {
-    padding-top: 4rem;
+    padding: 6rem 0 3rem;
   }
 
   .hero-body {
@@ -97,9 +97,12 @@
         word-break: inherit;
         font-family: $serif;
         text-transform: capitalize;
-        @include touch {
+        @include mobile {
           font-size: 4rem;
           text-align: center;
+        }
+        @include tablet {
+          text-align: left;
         }
       }
       p {
@@ -110,9 +113,8 @@
     .image {
       position: relative;
       &.is-hidden-desktop {
-        width: 80vw;
-        padding-top: 80vw;
-        margin:1rem auto;
+        max-width: 300px;
+        margin: 1rem auto;
       }
       img {
         border: 1rem solid transparent;
