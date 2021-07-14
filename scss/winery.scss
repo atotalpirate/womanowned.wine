@@ -1,53 +1,63 @@
 section.winery {
-    .featured-image {
-        position: relative !important;
-        top: 0 !important;
-        img {
-            border-radius: 1rem;
-            border: 1px solid $border;
+        .column {
+            padding: 0 0 0 1rem;
+            .logo img {
+                width: 190px;
+                height: 190px;
+            }
         }
-    }
-    h3.title {
-        opacity: 1 !important;
-        color: rgba($text, 0.33);
-        position: relative;
-        display: inline-block;
-    }
-    span.verified {
-        position: relative;
-        top: 5px;
-        left: 8px;
-        p.has-text-info {
-            position: absolute;
-            right: 0;
-            transform: translate(100%, 3px);
+        h1.title {
+            margin: 0;
         }
-    }
-    .address {
-        font-size: 1.25rem;
-        margin-bottom: 1.5rem;
-    }
-    .socials {
-        margin: 1rem 0;
+        h3.title {
+            opacity: 1 !important;
+            color: rgba($text, 0.33);
+            position: relative;
+            display: inline-block;
+        }
+        span.verified {
+            position: relative;
+            top: 5px;
+            left: 8px;
+            p.has-text-info {
+                position: absolute;
+                right: 0;
+                transform: translate(100%, 3px);
+            }
+        }
+        .address {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
         .website,
         .phone {
             span.icon {
-                margin-right: 0.25rem !important;
+                margin-right: 0 !important;
             }
         }
-        .social {
-            padding: 0.666rem;
+        .socials {
+            margin: 1rem 0;
+            .social {
+                padding: 0.666rem;
+            }
         }
-    }
-    .featured-bottles {
+    .featured {
         position: relative;
+        .splide__slide {
+            &:hover {
+                cursor: grab;
+            }
+            &:focus {
+                cursor: grabbing;
+            }
+        }
         > span {
             background-color: transparent;
             border-top: 1px solid #ededed;
             align-items: stretch;
             display: flex;
             position: relative;
-            margin: 3rem 0 1rem;
+            margin: 3rem 0 2rem;
             h3 {
                 text-align: center;
                 font-family: $sans-serif;
@@ -73,9 +83,13 @@ section.winery {
             h3.vintage {
                 font-weight: light;
                 opacity: 0.4;
+                font-size: 80%;
             }
             h3 {
                 font-weight: bold;
+            }
+            h3.varietal {
+                opacity: 0.5;
             }
         }
         .columns {
@@ -85,5 +99,6 @@ section.winery {
                 margin: 0;
             }
         }
+
     }
 }
