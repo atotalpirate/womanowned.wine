@@ -20,9 +20,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <!-- <link rel="stylesheet" href="<?php // echo get_template_directory_uri() . '/css/styles.min.css'; ?>"> -->
     <link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri().'/favicon.ico?v=2'; ?>" />
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
     <script src="https://jssdk.vinespring.com/v3.js" data-api-key='acct_5aa5aa50123e3b03aca8ea15'></script>
     <script type="text/javascript">
     window.vinespringConfig = vs => {
