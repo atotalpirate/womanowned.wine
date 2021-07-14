@@ -104,7 +104,7 @@ $featured_image_caption = get_field('featured_image_caption');
             </div>
 
             <div class="column is-one-third">
-                <div class="featured-bottles">
+                <div class="featured">
                 
                     <?php
                         $image_gallery = get_field('image_gallery');
@@ -142,15 +142,15 @@ $featured_image_caption = get_field('featured_image_caption');
                                 $bottle_vintage = get_field('vintage', $bottle->ID);
                             ?>
                                 <a href="<?php echo $bottle_url; ?>" class="column is-full columns is-multiline">
-                                    <div class="column is-one-third">
+                                    <div class="column is-one-quarter">
                                         <figure class="image">
                                             <img class="is-rounded" alt="photo of <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
                                         </figure>
                                     </div>
-                                    <div class="meta column is-two-thirds">
+                                    <div class="meta column">
                                         <h3 class="vintage"><?php echo $bottle_vintage; ?></h3>
                                         <h3><?php echo $bottle_title; ?></h3>
-                                        <h3><?php echo $bottle_term[0]->name; ?></h3>
+                                        <h3 class="varietal"><?php echo $bottle_term[0]->name; ?></h3>
                                     </div>
                                 </a>
                             <?php endforeach; ?>

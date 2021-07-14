@@ -1,5 +1,4 @@
 section.winery {
-    .info {
         .column {
             padding: 0 0 0 1rem;
             .logo img {
@@ -30,28 +29,35 @@ section.winery {
             font-size: 1.25rem;
             margin-bottom: 1.5rem;
         }
+        .website,
+        .phone {
+            span.icon {
+                margin-right: 0 !important;
+            }
+        }
         .socials {
             margin: 1rem 0;
-            .website,
-            .phone {
-                span.icon {
-                    margin-right: 0.25rem !important;
-                }
-            }
             .social {
                 padding: 0.666rem;
             }
         }
-    }
-    .featured-bottles {
+    .featured {
         position: relative;
+        .splide__slide {
+            &:hover {
+                cursor: grab;
+            }
+            &:focus {
+                cursor: grabbing;
+            }
+        }
         > span {
             background-color: transparent;
             border-top: 1px solid #ededed;
             align-items: stretch;
             display: flex;
             position: relative;
-            margin: 3rem 0 1rem;
+            margin: 3rem 0 2rem;
             h3 {
                 text-align: center;
                 font-family: $sans-serif;
@@ -77,9 +83,13 @@ section.winery {
             h3.vintage {
                 font-weight: light;
                 opacity: 0.4;
+                font-size: 80%;
             }
             h3 {
                 font-weight: bold;
+            }
+            h3.varietal {
+                opacity: 0.5;
             }
         }
         .columns {
@@ -89,5 +99,6 @@ section.winery {
                 margin: 0;
             }
         }
+
     }
 }

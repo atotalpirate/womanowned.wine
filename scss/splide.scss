@@ -31,7 +31,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 110%;
+	width: 110%;
+	z-index: 1;
 	.splide__arrow {
 		border: none;
 		background-color: transparent;
@@ -40,6 +41,7 @@
 			padding: 2rem;
 			height: auto;
 			cursor: pointer;
+			fill: $white;
 		}
 		&.splide__arrow--next {
 
@@ -82,7 +84,9 @@
 }
 
 .splide {
-	visibility: hidden
+	visibility: hidden;
+	border-radius: $radius;
+	overflow: hidden;
 }
 
 .splide,
