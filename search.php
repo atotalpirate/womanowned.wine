@@ -61,7 +61,7 @@ $content_length = strlen($content); ?>
 
 						if ($featured) : ?>
 
-							<div class="column is-one-third">
+							<div class="column is-one-third-tablet is-full-mobile">
 
 								<div class="winery card">
 									<a href="<?php the_permalink(); ?>">
@@ -134,7 +134,7 @@ $content_length = strlen($content); ?>
 				</div>
 
 
-				<div class="not-featured columns is-variable is-8 is-multiline">
+				<div class="not-featured columns is-variable is-8 is-multiline is-mobile">
 					<?php while (have_posts()) : the_post(); 
 					
 						$featured = get_field('featured');
@@ -150,7 +150,7 @@ $content_length = strlen($content); ?>
 						$logo = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 						if (!$featured) : ?>
 
-							<div class="column is-one-third">
+							<div class="column is-one-third-tablet is-half-mobile">
 								<header>
 								<h3 class=""><?php the_title(); ?></h3>
 								<?php echo ($proprietor) ? '<p class="subtitle is-5">' . $proprietor . '</p>' : ''; ?>

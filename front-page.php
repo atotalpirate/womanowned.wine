@@ -55,7 +55,7 @@ $tagline = get_field('tagline');
                                 </svg>
                             </figure>
                         </div>
-                        <div class="column is-two-thirds-tablet">
+                        <div class="column is-two-thirds-tablet-only">
                             <h1 class="title">
                                 <?php echo $tagline; ?>
                             </h1>
@@ -234,7 +234,7 @@ $wine_club = new WP_Query($args); ?>
                                         </a>
                                     <?php endforeach; ?>
                                 </span>
-                                <a href="#" class="button is-primary is-rounded">
+                                <a href="<?php echo $link; ?>" class="button is-primary is-rounded">
                                     <span class="icon is-small">
                                         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                                     </span>

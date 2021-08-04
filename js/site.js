@@ -23,7 +23,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 } );
 
 // mount splide only on pages with splideys
-if (document.getElementsByClassName("splide")) {
+if ( document.getElementsByClassName( 'splide' ) ) {
 	// mount splide for testimonials
 	document.addEventListener( 'DOMContentLoaded', function() {
 		new Splide( '.splide' ).mount();

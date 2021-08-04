@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying archive pages
  *
@@ -24,69 +25,84 @@ $content_length = strlen($content); ?>
             <?php echo $term; ?>
         </h1>
 
-        <?php if ($content) : ?> 
-            <div class="content <?php ($content_length > 500) ? 'has-two-columns' : '' ; ?>">
-                <?php echo $content; ?>
+        <div class="columns is-multiline">
+            <div class="column is-full has-text-centered">
+                <h4 class="is-sans">Featured Bottles</h4>
             </div>
-        <?php endif; ?>
+            <?php foreach ($posts as $key => $post) :
+                if ($post->post_type == 'interviews') :
+                    $title = get_the_title();
+                    $url = get_the_permalink();
+                    $date = get_the_date();
+                    $winery = get_field('winery');
+                    $winery_id = $winery->ID;
+                    $vintner = get_field('proprietor', $winery_id);
+                    $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>
 
-        <div class="columns">
-        <?php foreach ($posts as $key => $post) : 
-            if ($post->post_type == 'interviews') : 
-                $title = get_the_title();
-                $url = get_the_permalink();
-                $date = get_the_date();
-                $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); ?>
 
-            <a href="<?php echo $url; ?>" class="column is-one-third">
-                <div class="image-tile">
-                    <span class="tag is-link is-medium">
-                        Interview
-                    </span>
-                    <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
-                    <div class="card-content has-text-white">
-                        
-                        <h1 class="title is-3"><?php echo $title; ?></h1>
-                        <div class="meta">
-                            <span>Posted on <?php echo $date; ?></span>
+                    <a href="<?php echo $url; ?>" class="column is-one-third">
+                        <div class="card-2">
+                            <div class="image-tile interview">
+                                <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
+                                <div class="content has-text-white">
+                                    <span><?php echo $date; ?></span>
+                                    <h1 class="title "><?php echo $title; ?></h1>
+                                    <h1 class="vintner"><?php echo $vintner; ?></h1>
+                                </div>
+                            </div>
+                            <div class="footer">
+                                <?php echo $content; ?>
+                            </div>
                         </div>
-                        <div class="content has-text-white">
-                            <?php the_excerpt(); ?>
-                        </div>
-                    </div>
-                </div>
-            </a>
+                    </a>
 
-            <?php endif; 
-            if ($post->post_type == 'featured-bottles') : 
-                $title = get_the_title();
-                $url = get_the_permalink();
-                $date = get_the_date();
-                $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); ?>
+            <?php endif;
+            endforeach; ?>
 
-            <a href="<?php echo $url; ?>" class="column is-one-third">
-                <div class="image-tile featured-bottle">
-                    <span class="tag is-link is-medium">
-                        Featured Bottle
-                    </span>
-                    <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
-                    <div class="card-content has-text-white">
-                        <h1 class="title is-3"><?php echo $title; ?></h1>
-                        <div class="meta">
-                            <span>Posted on <?php echo $date; ?></span>
-                        </div>
-                        <div class="content has-text-white">
-                            <?php the_excerpt(); ?>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <?php endif; ?>
-        <?php endforeach; ?>
         </div>
 
-    </div>	
+        <div class="columns is-multiline">
+            <div class="column is-full has-text-centered">
+                <h4>Featured Bottles</h4>
+            </div>
+            <?php foreach ($posts as $key => $post) :
+                if ($post->post_type == 'featured-bottles') :
+                    
+                    $title = get_the_title();
+                    $content = get_the_excerpt();
+                    $vintage = get_field('vintage');
+                    $vineyard = get_field('vineyard');
+                    $url = get_the_permalink();
+                    $region = get_the_terms($post->ID, 'regions');
+                    $date = get_the_date();
+                    $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID)); 
+                    $featured_bottles_page = get_page_by_path('featured-bottles');
+                    $featured_bottles_title = get_the_title($featured_bottles_page->ID);
+                    $featured_bottles_content = $featured_bottles_page->post_content;?>
+
+                    <a href="<?php echo $url; ?>" class="column is-one-third">
+
+                        <div class="image-tile featured-bottle">
+                            <?php if ($region[0]->name) : ?>
+                                <span class="tag is-link is-medium">
+                                    <?php echo $region[0]->name; ?>
+                                </span>
+                            <?php endif; ?>
+                            <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
+                            <div class="content has-text-white">
+                                <span><?php echo $vintage; ?></span>
+                                <h1 class="title"><?php echo $title; ?></h1>
+                                <h1 class="vineyard"><?php echo $vineyard; ?></h1>
+                            </div>
+                        </div>
+
+                    </a>
+
+            <?php endif;
+            endforeach; ?>
+        </div>
+
+    </div>
 </section>
 
 <?php get_footer(); ?>

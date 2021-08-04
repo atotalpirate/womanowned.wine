@@ -60,7 +60,9 @@ $interviews = new WP_Query($args); ?>
                             <div class="content has-text-white">
                                 <span><?php echo $date; ?></span>
                                 <h1 class="title "><?php echo $title; ?></h1>
-                                <h1 class="vintner"><span>with </span><?php echo $vintner; ?></h1>
+                                <?php if ($vintner) : ?>
+                                    <h1 class="vintner"><span>with </span><?php echo $vintner; ?></h1>
+                                <?php endif; ?> 
                                 <p><?php echo $content; ?></p>
                             </div>
                         </div>
@@ -77,7 +79,9 @@ $interviews = new WP_Query($args); ?>
                                     <div class="content has-text-white">
                                         <span><?php echo $date; ?></span>
                                         <h1 class="title "><?php echo $title; ?></h1>
-                                        <h1 class="vintner"><?php echo $vintner; ?></h1>
+                                        <?php if ($vintner) : ?>
+                                            <h1 class="vintner"><span>with </span><?php echo $vintner; ?></h1>
+                                        <?php endif; ?> 
                                     </div>
                                 </div>
                                 <div class="footer">

@@ -5,23 +5,36 @@
     .columns {
         .column {
             position: relative;
-            .card {
-                box-shadow: unset;
-                min-height: 15rem;
-                .title {
-                    margin-bottom: 0;
-                }
-                &:hover {
-                    box-shadow: unset;
-                    .card-bg {
-                        transform: scale(1);
-                    }
-                }
-            }
-            .content {
-                padding: 1rem;
+            > img {
+                border-radius: $radius;
+                margin-bottom: 1rem;
             }
             .featured-bottles {
+                > span {
+                    background-color: transparent;
+                    border-top: 1px solid #ededed;
+                    align-items: stretch;
+                    display: flex;
+                    position: relative;
+                    margin: 3rem 0 2rem;
+                    h3 {
+                        text-align: center;
+                        font-family: "Josefin Sans",sans-serif;
+                        background-color: #f7f5f5;
+                        font-family: "Montserrat";
+                        width: auto;
+                        position: absolute;
+                        font-size: 0.75rem;
+                        text-transform: uppercase;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        letter-spacing: 7px;
+                        white-space: nowrap;
+                        padding: 0px 10px 0 15px;
+                        text-align: center;
+                        color: rgba(81,81,81,0.35);
+                    }
+                }
                 .column {
                     text-align: center;
                     margin-top: 1rem;
