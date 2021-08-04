@@ -115,7 +115,7 @@ $made_possible = get_field('made_possible', 'option');
         </div>
         <div class="container">
             <div class="level">
-                <div class="level-item has-text-centered"> Copyright © WOWSonoma. All Rights Reserved. </div>
+                <div class="level-item has-text-centered"> Copyright © <?php echo date("Y"); ?> Woman-Owned Wineries, LLC. All Rights Reserved. </div>
             </div>
         </div>
     </div>

@@ -68,7 +68,9 @@ $featured_bottles = new WP_Query($bottle); ?>
                             <div class="content has-text-white">
                                 <span><?php echo $date; ?></span>
                                 <h1 class="title "><?php echo $title; ?></h1>
-                                <h1 class="vintner"><span>with </span><?php echo $vintner; ?></h1>
+                                <?php if ($vintner) : ?>
+                                    <h1 class="vintner"><span>with </span><?php echo $vintner; ?></h1>
+                                <?php endif; ?> 
                                 <p><?php echo $content; ?></p>
                             </div>
                         </div>
@@ -85,7 +87,9 @@ $featured_bottles = new WP_Query($bottle); ?>
                                     <div class="content has-text-white">
                                         <span><?php echo $date; ?></span>
                                         <h1 class="title "><?php echo $title; ?></h1>
-                                        <h1 class="vintner"><?php echo $vintner; ?></h1>
+                                        <?php if ($vintner) : ?>
+                                            <h1 class="vintner"><span>with </span><?php echo $vintner; ?></h1>
+                                        <?php endif; ?> 
                                     </div>
                                 </div>
                                 <div class="footer">
@@ -97,7 +101,7 @@ $featured_bottles = new WP_Query($bottle); ?>
 
         </div>
         <div class="columns is-mobile is-centered">
-            <div class="column is-one-third"><a href="/interviews" class="button is-primary is-fullwidth">Read More Interviews</a></div>
+            <div class="column is-one-third"><a href="/interviews" class="read-more is-fullwidth">Read More Interviews</a></div>
         </div>
     </div>
 </section>
@@ -114,6 +118,7 @@ $featured_bottles = new WP_Query($bottle); ?>
                     $vintage = get_field('vintage');
                     $vineyard = get_field('vineyard');
                     $url = get_the_permalink();
+                    $region = get_the_terms($post->ID, 'regions');
                     $date = get_the_date();
                     $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID)); 
                     $featured_bottles_page = get_page_by_path('featured-bottles');
@@ -133,9 +138,11 @@ $featured_bottles = new WP_Query($bottle); ?>
                     <a href="<?php echo $url; ?>" class="column is-half">
 
                         <div class="image-tile featured-bottle">
-                            <span class="tag is-link is-medium">
-                                Featured Bottle
-                            </span>
+                            <?php if ($region[0]->name) : ?>
+                                <span class="tag is-link is-medium">
+                                    <?php echo $region[0]->name; ?>
+                                </span>
+                            <?php endif; ?>
                             <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
                             <div class="content has-text-white">
                                 <span><?php echo $vintage; ?></span>
@@ -153,9 +160,11 @@ $featured_bottles = new WP_Query($bottle); ?>
                         <a href="<?php echo $url; ?>" class="column is-one-third">
 
                         <div class="image-tile featured-bottle">
-                            <span class="tag is-link is-medium">
-                                Featured Bottle
-                            </span>
+                            <?php if ($region[0]->name) : ?>
+                                <span class="tag is-link is-medium">
+                                    <?php echo $region[0]->name; ?>
+                                </span>
+                            <?php endif; ?>
                             <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
                             <div class="content has-text-white">
                                 <span><?php echo $vintage; ?></span>
@@ -170,7 +179,7 @@ $featured_bottles = new WP_Query($bottle); ?>
 
         </div>
         <div class="columns is-mobile is-centered">
-            <div class="column is-one-third"><a href="/featured-bottles" class="button is-primary is-fullwidth">More Featured Bottles</a></div>
+            <div class="column is-one-third"><a href="/featured-bottles" class="read-more is-fullwidth">More Featured Bottles</a></div>
         </div>
     </div>
 </section>

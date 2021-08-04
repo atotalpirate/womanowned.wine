@@ -147,12 +147,6 @@ function women_owned_wineries_sonoma_scripts()
 	wp_enqueue_script('site', get_template_directory_uri() . '/js/site.js', array('jquery'), true);
 
 	wp_enqueue_script('splide', get_template_directory_uri() . '/js/splide.min.js', array(), true);
-
-	if (is_home()) {
-		wp_enqueue_script('splide');
-	} elseif (is_page_template(get_template_directory_uri().'single-wineries.php')) {
-		wp_enqueue_script('splide');
-	}
 }
 add_action('wp_enqueue_scripts', 'women_owned_wineries_sonoma_scripts');
 
