@@ -26,8 +26,8 @@ $zip = get_field('zip');
 $phone = get_field('phone_number');
 $website = get_field('website');
 $featured_bottles = get_field('featured_bottles');
+$interview = get_field('interview');
 $social_links = get_field_object('social_links');
-
 
 $image = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 $featured_image_caption = get_field('featured_image_caption');
@@ -142,7 +142,7 @@ $featured_image_caption = get_field('featured_image_caption');
                                 $bottle_vintage = get_field('vintage', $bottle->ID);
                             ?>
                                 <a href="<?php echo $bottle_url; ?>" class="column is-full columns is-multiline">
-                                    <div class="column is-one-quarter">
+                                    <div class="column is-one-third">
                                         <figure class="image">
                                             <img class="is-rounded" alt="photo of <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
                                         </figure>
@@ -154,6 +154,36 @@ $featured_image_caption = get_field('featured_image_caption');
                                     </div>
                                 </a>
                             <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ($interview) :
+                        $interview_ID = $interview->ID;
+                        $interview_url = get_permalink($interview_ID);
+                        $interview_date = get_the_date('M d, Y', $interview_ID);
+                        $interview_title = $interview->post_title;
+                        $interview_img = wp_get_attachment_url(get_post_thumbnail_id($interview_ID));;
+                        $interview_winery = get_field('winery', $interview_ID);
+                        $interview_winery_id = $interview_winery->ID;
+                        $interview_winery_proprietor = get_field('proprietor', $interview_winery_id)
+                         ?>
+
+                        <span>
+                            <h3 class="featured-title">Interview</h3>
+                        </span>
+                        <div class="columns is-multiline">
+                            <a href="<?php echo $interview_url; ?>" class="column is-full columns is-multiline">
+                                <div class="column is-one-third">
+                                    <figure class="image">
+                                        <img class="is-rounded" alt="photo of " src="<?php echo $interview_img; ?>">
+                                    </figure>
+                                </div>
+                                <div class="meta column">
+                                    <h3 class="vintage"><?php echo $interview_date; ?></h3>
+                                    <h3><?php echo $interview_title; ?></h3>
+                                    <h3 class="varietal">with <?php echo $interview_winery_proprietor; ?></h3>
+                                </div>
+                            </a>
                         </div>
                     <?php endif; ?>
                 </div>
