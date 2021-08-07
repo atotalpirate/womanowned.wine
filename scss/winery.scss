@@ -44,6 +44,14 @@ section.winery {
     .featured {
         position: relative;
         .splide__slide {
+            .splide__slide__container {
+                height: 100%;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
             &:hover {
                 cursor: grab;
             }
