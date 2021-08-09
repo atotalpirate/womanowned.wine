@@ -1,6 +1,6 @@
 .card {
     overflow: hidden;
-    border-radius: 1.5rem;
+    border-radius: 2.75rem;
     @extend .z3, .elevation-transition;
     &:hover {
         @extend .z5;
@@ -43,7 +43,11 @@
                 bottom: 0;
                 padding: 1rem;
                 color: white;
-                
+            }
+            .subtitle {
+                color: rgba($white, 0.75);
+                font-size: 80%;
+                display: block;
             }
         }
         .card-content {
@@ -51,11 +55,13 @@
             padding: 1rem;
             .content {
                 padding-bottom: 1rem;
+                min-height: 9rem;
             }
         }
         .card-footer {
             padding: 0 0.5rem 0;
             justify-content: space-between;
+            min-height: calc(60px + 2.5rem);
             .featured-title {
                 background-color: $white;
                 font-family: $navigation;
@@ -71,17 +77,20 @@
                 text-align: center;
                 color: rgba($text, 0.35);
             }
+            .image {
+                border: 1px solid rgba($black, 0.25);
+            }
             .image,
             .button {
                 display: inline-block;
-                width: 45px;
-                height: 45px;
-                margin: 1.5rem 0.5rem 0.5rem;   
+                width: 60px;
+                height: 60px;
+                margin: 1.5rem 0.5rem 0.5rem;
+                @extend .is-rounded;
             }
             .button {
                 display: flex;
                 align-items: center;
-                width: auto;
                 @extend .z3, .elevation-transition;
                 &:hover {
                     @extend .z5;
