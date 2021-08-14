@@ -13,7 +13,9 @@ $args = array(
     'post_type' => 'wine-club',
     'post_status' => 'publish',
     'posts_per_page' => -1,
-    'order' => 'DESC'
+    'order' => 'DESC',
+    'meta_key' => 'featured',
+    'meta_value' => true
 );
 
 $wine_club_page = get_page_by_path('wine-club');
@@ -23,7 +25,7 @@ $content_length = strlen($content);
 $title = get_the_title( $wine_club_page->ID );
 // echo '<pre class="white text">';var_dump( $wine_club_page->ID );echo '</pre>';
 
-$interviews = new WP_Query($args); ?>
+$clubs = new WP_Query($args); ?>
 
 <section class="interviews section">
     <div class="container">
@@ -39,12 +41,14 @@ $interviews = new WP_Query($args); ?>
             <?php echo file_get_contents(get_stylesheet_directory() . '/img/flourish.svg'); ?>
         </div>
 
-        <?php if ($interviews->have_posts()) : ?>
+        <?php if ($clubs->have_posts()) : ?>
 
             <div class="columns is-multiline">
-                <?php while ($interviews->have_posts()) : $interviews->the_post(); $count++; endwhile; ?>
-                <?php while ($interviews->have_posts()) : $interviews->the_post();
+                <?php while ($clubs->have_posts()) : $clubs->the_post(); $count++; endwhile; ?>
+                <?php while ($clubs->have_posts()) : $clubs->the_post();
+                    $featured = get_field('featured');
                     $title = get_the_title();
+                    $subtitle = get_field('subtitle');
                     $date = get_the_date();
                     $link = get_the_permalink();
                     $clubID = get_field('club_id');
@@ -62,7 +66,10 @@ $interviews = new WP_Query($args); ?>
                                 <figure class="image is-4by3">
                                     <img src="<?php echo $image; ?>" alt="<?php echo $image_alt; ?>" title="<?php echo $image_title; ?>">
                                 </figure>
-                                <p class="title"><?php echo $title; ?></p>
+                                <p class="title">
+                                    <?php echo $title; ?>
+                                    <?php echo ($subtitle) ? "<span class='subtitle'>" . $subtitle . "</span>" : '' ; ?>
+                                </p>
                             </a>
                             <div class="card-content">
                                 <div class="content">
@@ -72,7 +79,7 @@ $interviews = new WP_Query($args); ?>
                             <footer class="card-footer">
                                 <span class="featured-title">includes</span>
                                 <span class="featured-bottles">
-                                    <?php foreach ($featured_bottles as $key => $bottle) :
+                                <?php if ($featured_bottles) : foreach ($featured_bottles as $key => $bottle) :
                                         $bottle_img = wp_get_attachment_url(get_post_thumbnail_id($bottle->ID));
                                         $bottle_title = get_the_title($bottle->ID);
                                         $bottle_term = wp_get_post_terms($bottle->ID, 'varietals');
@@ -82,7 +89,7 @@ $interviews = new WP_Query($args); ?>
                                         <a href="<?php echo get_the_permalink($bottle->ID); ?>" class="image">
                                             <img class="is-rounded" alt="Permalink for <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
                                         </a>
-                                    <?php endforeach; ?>
+                                    <?php endforeach; endif; ?>
                                 </span>
                                 <a href="#" class="button is-primary is-rounded">
                                     <span class="icon is-small">
@@ -97,7 +104,7 @@ $interviews = new WP_Query($args); ?>
     </div>
 <?php else : ?>
     <div class="empty">
-        <h2 class="subtitle has-text-centered">No interviews yet.</h2>
+        <h2 class="title has-text-centered">Currently, there are no available wine clubs.</h2>
     </div>
 <?php endif;
         wp_reset_query(); ?>

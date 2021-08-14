@@ -160,7 +160,9 @@ $tagline = get_field('tagline');
     'post_type' => 'wine-club',
     'post_status' => 'publish',
     'posts_per_page' => -1,
-    'order' => 'ASC'
+    'order' => 'ASC',
+    'meta_key' => 'featured',
+    'meta_value' => true
 );
 
 $wine_club = new WP_Query($args); ?>
@@ -186,6 +188,7 @@ $wine_club = new WP_Query($args); ?>
                 endwhile; ?>
                 <?php while ($wine_club->have_posts()) : $wine_club->the_post();
                     $title = get_the_title();
+                    $subtitle = get_field('subtitle');
                     $date = get_the_date();
                     $link = get_the_permalink();
                     $end_date = get_field('ending_date');
@@ -212,7 +215,10 @@ $wine_club = new WP_Query($args); ?>
                                 <figure class="image is-4by3">
                                     <img src="<?php echo $image; ?>" alt="<?php echo $image_alt; ?>" title="<?php echo $image_title; ?>">
                                 </figure>
-                                <p class="title"><?php echo $title; ?></p>
+                                <p class="title">
+                                    <?php echo $title; ?>
+                                    <?php echo ($subtitle) ? "<span class='subtitle'>" . $subtitle . "</span>" : '' ; ?>
+                                </p>
                             </a>
                             <div class="card-content">
                                 <div class="content">
