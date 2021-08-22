@@ -60,8 +60,11 @@
         }
         .card-footer {
             padding: 0 0.5rem 0;
-            justify-content: space-between;
+            justify-content: flex-end;
             min-height: calc(60px + 2.5rem);
+            &.has-featured {
+                justify-content: space-between;
+            }
             .featured-title {
                 background-color: $white;
                 font-family: $navigation;
