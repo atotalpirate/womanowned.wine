@@ -76,22 +76,24 @@ $clubs = new WP_Query($args); ?>
                                     <?php echo $excerpt; ?>
                                 </div>
                             </div>
-                            <footer class="card-footer">
-                                <span class="featured-title">includes</span>
-                                <span class="featured-bottles">
-                                <?php if ($featured_bottles) : foreach ($featured_bottles as $key => $bottle) :
-                                        $bottle_img = wp_get_attachment_url(get_post_thumbnail_id($bottle->ID));
-                                        $bottle_title = get_the_title($bottle->ID);
-                                        $bottle_term = wp_get_post_terms($bottle->ID, 'varietals');
-                                        $bottle_url = get_the_permalink($bottle->ID);
-                                        //  echo '<pre class="white text">';var_dump($bottle_img);echo '</pre>'; 
-                                    ?>
-                                        <a href="<?php echo get_the_permalink($bottle->ID); ?>" class="image">
-                                            <img class="is-rounded" alt="Permalink for <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
-                                        </a>
-                                    <?php endforeach; endif; ?>
-                                </span>
-                                <a href="#" class="button is-primary is-rounded">
+                            <footer class="card-footer <?php echo $featured_bottles ? "has-featured" : "" ; ?>">
+                                <?php if ($featured_bottles) : ?>
+                                    <span class="featured-title">includes</span>
+                                    <span class="featured-bottles">
+                                        <?php foreach ($featured_bottles as $key => $bottle) :
+                                            $bottle_img = wp_get_attachment_url(get_post_thumbnail_id($bottle->ID));
+                                            $bottle_title = get_the_title($bottle->ID);
+                                            $bottle_term = wp_get_post_terms($bottle->ID, 'varietals');
+                                            $bottle_url = get_the_permalink($bottle->ID);
+                                            //  echo '<pre class="white text">';var_dump($bottle_img);echo '</pre>'; 
+                                        ?>
+                                            <a href="<?php echo get_the_permalink($bottle->ID); ?>" class="image">
+                                                <img class="is-rounded" alt="Permalink for <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
+                                            </a>
+                                        <?php endforeach; ?>
+                                    </span>
+                                <?php endif; ?>
+                                <a href="<?php echo $link; ?>" class="button is-primary is-rounded">
                                     <span class="icon is-small">
                                         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                                     </span>

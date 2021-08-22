@@ -237,7 +237,7 @@ $wine_club = new WP_Query($args); ?>
                                             //  echo '<pre class="white text">';var_dump($bottle_img);echo '</pre>'; 
                                         ?>
                                             <a href="<?php echo get_the_permalink($bottle->ID); ?>" class="image">
-                                                <img class="is-round" alt="Permalink for <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
+                                                <img class="is-rounded" alt="Permalink for <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
                                             </a>
                                         <?php endforeach; ?>
                                     </span>
