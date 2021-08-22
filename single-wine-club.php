@@ -38,7 +38,7 @@ $featured_bottles = get_field('featured_bottles');
 									$bottle_url = get_the_permalink($bottle->ID); ?>
 							<div class="column is-one-third">
 								<figure class="image">
-									<img class="is-rounded" src="<?php echo $bottle_img; ?>">
+									<img class="is-round" src="<?php echo $bottle_img; ?>">
 								</figure>
 								<h3><?php echo $bottle_title; ?></h3>
 								<h4><?php echo $bottle_term[0]->name; ?></h4>
