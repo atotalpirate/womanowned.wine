@@ -21,9 +21,11 @@ body {
                             
 }
 
-.is-rounded {
+.is-round {
   object-fit: cover;              
-  border-radius: 10000em;     
+  border-radius: 10000em;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .meta,

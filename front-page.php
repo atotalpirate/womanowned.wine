@@ -242,6 +242,7 @@ $wine_club = new WP_Query($args); ?>
                                         <?php endforeach; ?>
                                     </span>
                                 <?php endif; ?>
+
                                 <a href="<?php echo $link; ?>" class="button is-primary is-rounded">
                                     <span class="icon is-small">
                                         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
