@@ -7,3 +7,5 @@ style.css.map
 node_modules
 vendor
 
+// all clipboards (extensionless files)
+!*.*
