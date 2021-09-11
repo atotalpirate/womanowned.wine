@@ -133,21 +133,21 @@ $tagline = get_field('tagline');
 
         <div class="columns is-variable is-8 has-text-centered">
             <div class="column is-one-third">
-                <span class="icon has-text-dark is-size-1">
+                <span class="icon is-size-1">
                     <?php echo $how_we_work['icon_1']; ?>
                 </span>
                 <h3><?php echo $how_we_work['title_1']; ?></h3>
                 <p><?php echo $how_we_work['content_1']; ?></p>
             </div>
             <div class="column is-one-third">
-                <span class="icon has-text-dark is-size-1">
+                <span class="icon is-size-1">
                     <?php echo $how_we_work['icon_2']; ?>
                 </span>
                 <h3><?php echo $how_we_work['title_2']; ?></h3>
                 <p><?php echo $how_we_work['content_2']; ?></p>
             </div>
             <div class="column is-one-third">
-                <span class="icon has-text-dark is-size-1">
+                <span class="icon is-size-1">
                     <?php echo $how_we_work['icon_3']; ?>
                 </span>
                 <h3><?php echo $how_we_work['title_3']; ?></h3>

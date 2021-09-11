@@ -140,7 +140,7 @@
       }
     }
     h3 {
-      color: $text;
+      color: $title-color;
       font-size: 3rem;
       font-family: $sans-serif;
       @include touch {
@@ -152,9 +152,9 @@
       margin: 0 auto;
     }
     .icon {
+      color: $title-color;
       opacity: 0.66;
       margin: 1rem;
     }
   }
 }
-
