@@ -27,7 +27,7 @@ $content_length = strlen($content); ?>
 
         <div class="columns is-multiline">
             <div class="column is-full has-text-centered">
-                <h4 class="is-sans">Featured Bottles</h4>
+                <h4 class="title">Interviews</h4>
             </div>
             <?php foreach ($posts as $key => $post) :
                 if ($post->post_type == 'interviews') :
@@ -63,11 +63,10 @@ $content_length = strlen($content); ?>
 
         <div class="columns is-multiline">
             <div class="column is-full has-text-centered">
-                <h4>Featured Bottles</h4>
+                <h4 class="title">Featured Bottles</h4>
             </div>
             <?php foreach ($posts as $key => $post) :
                 if ($post->post_type == 'featured-bottles') :
-                    
                     $title = get_the_title();
                     $content = get_the_excerpt();
                     $vintage = get_field('vintage');

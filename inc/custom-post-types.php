@@ -53,11 +53,13 @@ function wineries_init() {
     'has_archive'        => true,
     'menu_icon'          => 'dashicons-businesswoman',
     'hierarchical'       => false,
-    'supports'           => array( 'title', 'editor', 'author', 'thumbnail' )
+    'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+    'taxonomies'         => array('post_tag'),
   );
 
   register_post_type( 'wineries', $args );
 }
+
 
 // Register Featured Bottles post type
 add_action( 'init', 'featured_bottles_init' );
@@ -95,8 +97,8 @@ function featured_bottles_init() {
     'has_archive'        => true,
     'menu_icon'          => 'dashicons-awards',
     'hierarchical'       => false,
-    'supports'           => array( 'title', 'editor', 'author', 'thumbnail' )
-    // 'taxonomies' => array( '' ),
+    'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+    'taxonomies'         => array('post_tag'),
 
   );
 
@@ -139,7 +141,8 @@ function interviews_init() {
     'has_archive'        => true,
     'menu_icon'          => 'dashicons-admin-comments',
     'hierarchical'       => false,
-    'supports'           => array( 'title', 'editor', 'author', 'thumbnail' )
+    'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+    'taxonomies'         => array('post_tag'),
   );
 
   register_post_type( 'interviews', $args );
@@ -182,7 +185,8 @@ function wine_club_init() {
     'has_archive'        => true,
     'menu_icon'          => 'dashicons-archive',
     'hierarchical'       => false,
-    'supports'           => array( 'title', 'editor', 'author', 'thumbnail' )
+    'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+    'taxonomies'         => array('post_tag'),
   );
 
   register_post_type( 'wine-club', $args );
@@ -224,7 +228,8 @@ function press_init() {
     'has_archive'        => true,
     'menu_icon'          => 'dashicons-admin-site',
     'hierarchical'       => false,
-    'supports'           => array( 'title', 'editor', 'author', 'thumbnail' )
+    'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+    'taxonomies'         => array('post_tag'),
   );
 
   register_post_type( 'press', $args );
