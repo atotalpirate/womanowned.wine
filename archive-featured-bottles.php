@@ -21,7 +21,9 @@ $args = array(
     'post_type' => 'featured-bottles',
     'post_status' => 'publish',
     'posts_per_page' => -1,
-    'order' => 'ASC'
+    'order' => 'ASC',
+	'meta_key'		=> 'blog',
+	'meta_value'	=> true
 );
 
 $featured_bottles = new WP_Query($args); ?>
@@ -32,7 +34,7 @@ $featured_bottles = new WP_Query($args); ?>
 
         <div class="columns is-multiline">
 
-            <?php while ($featured_bottles->have_posts()) : $featured_bottles->the_post();
+            <?php if ($featured_bottles->have_posts()) : while ($featured_bottles->have_posts()) : $featured_bottles->the_post();
                 $count++;
                     $title = get_the_title();
                     $content = get_the_excerpt();
@@ -58,9 +60,6 @@ $featured_bottles = new WP_Query($args); ?>
                     <a href="<?php echo $url; ?>" class="column is-half">
 
                         <div class="image-tile featured-bottle">
-                            <span class="tag is-link is-medium">
-                                Featured Bottle
-                            </span>
                             <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
                             <div class="content has-text-white">
                                 <span><?php echo $vintage; ?></span>
@@ -78,9 +77,6 @@ $featured_bottles = new WP_Query($args); ?>
                         <a href="<?php echo $url; ?>" class="column is-one-third">
 
                         <div class="image-tile featured-bottle">
-                            <span class="tag is-link is-medium">
-                                Featured Bottle
-                            </span>
                             <div class="card-bg" style="background-image: url(<?php echo $image; ?>);"></div>
                             <div class="content has-text-white">
                                 <span><?php echo $vintage; ?></span>
@@ -91,7 +87,9 @@ $featured_bottles = new WP_Query($args); ?>
 
                         </a>
 
-                    <?php endif; endwhile; wp_reset_postdata(); ?>
+                        <?php endif; endwhile; else: ?>
+                            <h1 class="title has-text-centered no-posts">No bottles yet.</h1>
+                        <?php endif; wp_reset_postdata(); ?>
 
         </div>
     </div>

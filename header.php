@@ -69,6 +69,9 @@
                     <a class="navbar-item" href="/">
                         <span class="logo">
                             <?php echo file_get_contents( get_stylesheet_directory() . '/img/wow-logo-alt.svg' ); ?>
+                            <span class="logotype">
+                                <?php echo file_get_contents( get_stylesheet_directory() . '/img/wow-logotype-block.svg' ); ?>
+                            </span>
                         </span>
                     </a>
 

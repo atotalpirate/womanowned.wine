@@ -27,8 +27,8 @@ $bottle = array(
     'post_type' => 'featured-bottles',
     'post_status' => 'publish',
     'posts_per_page' => 4,
-    'meta_key' => 'bottle_type',
-    'meta_value' => true
+    'orderby' => 'title',
+    'order' => 'ASC',
 );
 
 $featured_bottles = new WP_Query($bottle); ?>

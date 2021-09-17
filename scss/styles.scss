@@ -163,12 +163,13 @@ $navigation: 'Montserrat';
 $serif: 'Abril Fatface', serif;
 $sans-serif: 'Josefin Sans', sans-serif;
 
-  // Bulma $variables
-//   $primary: #F0A489;
+// Bulma $variables
+  //   $primary: #F0A489;
   $primary: #ffa281;
   $secondary: #241b27;
-//   $cta: #4cf0af;
-//   $cta: #9DD9D2;
+  $title-color: #645856;
+  //   $cta: #4cf0af;
+  //   $cta: #9DD9D2;
   $cta: #67e3d4;
   $success: $cta;
   
@@ -184,6 +185,9 @@ $sans-serif: 'Josefin Sans', sans-serif;
   $widescreen: 1152px;
 
   $navbar-item-hover-color: $cta;
+
+// Site variables
+  $site-bg: #fffbfa;
 
 //   $button-background-color: white !important;
 

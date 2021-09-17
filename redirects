@@ -1,0 +1,90 @@
+# Main pages
+Redirect 301 /about https://womanowned.wine/purpose
+Redirect 301 /frequently-asked-questions/ https://womanowned.wine/contact
+Redirect 301 /advisory-board/ https://womanowned.wine/purpose/advisory-board/
+Redirect 301 /support/ https://womanowned.wine/contact
+Redirect 301 /founder/ https://womanowned.wine/purpose/team/
+Redirect 301 /sample-policy/ https://womanowned.wine/contact
+
+# Wordpress pages
+Redirect 301 /author/cavaliercareer/ https://womanowned.wine/purpose/team/
+Redirect 301 /author/cavaliercareer/page/5/ https://womanowned.wine/purpose/team/
+
+# Interviews
+Redirect 301 /2020/01/20/mari-womack-of-damsel-cellars/ https://womanowned.wine/interviews/down-the-rabbit-hole-mari-womack/
+Redirect 301 /2020/05/27/camins-chat/ https://womanowned.wine/interviews/for-the-love-of-it-tara-gomez-and-mireia-taribo-tena/
+Redirect 301 /2018/02/23/four-generations-and-counting-julie-pedroncelli-st-john/ https://womanowned.wine/interviews/four-generations-and-counting-julie-pedroncelli/
+Redirect 301 /2020/08/07/i-dont-want-to-join-a-wine-gang-talking-live-with-sonja-magdevski/ https://womanowned.wine/interviews/i-dont-want-to-join-a-wine-gang-sonja-magdevski/
+Redirect 301 /2019/06/27/shaping-the-field-marty-bannister/ https://womanowned.wine/interviews/shaping-the-field-marty-bannister/
+Redirect 301 /2018/11/12/ashley-trout-on-showing-up-finding-balance/ https://womanowned.wine/interviews/showing-up-and-serving-others-ashley-trout/
+Redirect 301 /2019/03/17/gospel-of-the-grape-brianne-day/ https://womanowned.wine/interviews/gospel-of-the-grape-brianne-day/
+Redirect 301 /2019/01/22/1289/ https://womanowned.wine/interviews/these-women-are-mighty-alison-smith-story/
+Redirect 301 /2020/09/08/the-gravitational-pull-of-a-vintners-fate-alison-sokol-blosser/ https://womanowned.wine/interviews/the-gravitational-pull-of-a-vintners-fate-alison-sokol-blosser/
+Redirect 301 /2021/03/21/lifting-her-voice-mary-derby-of-dama-wines/ https://womanowned.wine/interviews/lifting-her-voice-mary-derby/
+Redirect 301 /2017/12/14/buoyed-by-community/ https://womanowned.wine/interviews/buoyed-by-community-jennifer-reichart-of-raft-wines/
+
+# Featured bottles
+Redirect 301 /2019/07/11/featured-bottle-larue-rice-spivak-pinot-noir/ https://womanowned.wine/featured-bottles/larue-pinot-noir/
+Redirect 301 /2019/07/20/featured-bottle-2013-theopolis-petite-sirah/ https://womanowned.wine/featured-bottles/theopolis-vineyards-petite-sirah/
+Redirect 301 /2019/08/08/featured-bottle-march-wines-st-laurent/ https://womanowned.wine/featured-bottles/march-wines-st-laurent/
+Redirect 301 /2019/09/02/featured-bottle-2016-remy-three-wives-red-table-wine/ https://womanowned.wine/featured-bottles/remy-wines-three-wives/
+Redirect 301 /2019/12/20/featured-bottle-2018-carboniste-gomes-vineyard-sparkling-albarino/ https://womanowned.wine/featured-bottles/carboniste-sparkling-albarino/
+Redirect 301 /2020/09/10/lotis/ https://womanowned.wine/featured-bottles/lotis-vermentino/
+Redirect 301 /2020/10/24/2017-sutro-cabernet-sauvignon-alexander-valley/ https://womanowned.wine/featured-bottles/sutro/
+Redirect 301 /2020/09/18/2018-cramoisi-pinot-noir-cuvee/ https://womanowned.wine/featured-bottles/cramoisi-vineyard/
+Redirect 301 /2021/01/17/2017-merisi-petite-sirah-lake-county/ https://womanowned.wine/featured-bottles/merisi/
+Redirect 301 /2019/07/06/featured-bottle-kita-grenache-rose/ https://womanowned.wine/featured-bottles/kita-grenache-rose/
+Redirect 301 /2019/06/27/featured-bottle-2018-tolenas-eclipse-white-pinot-noir/ https://womanowned.wine/featured-bottles/tolenas-eclipse-white-pinot-noir/
+Redirect 301 /2020/09/03/2016-geodesy-sage-ridge-red-blend/ https://womanowned.wine/featured-bottles/geodesy/
+Redirect 301 /2020/10/08/2018-caryq-gsm-blend-shake-ridge-ranch/ https://womanowned.wine/featured-bottles/caryq/
+Redirect 301 /2020/11/06/2019-cheramie-riesling-texas-high-plains/ https://womanowned.wine/featured-bottles/cheramie/
+Redirect 301 /2020/11/13/2018-leah-jorgensen-cellars-oregon-tour-rain-vin-rouge/ https://womanowned.wine/featured-bottles/leah-jorgensen-cellars/
+Redirect 301 /2020/11/20/5559/ https://womanowned.wine/featured-bottles/poundstone/
+
+# Merch
+Redirect 301 /merch/ https://womanowned.wine/purpose/merch
+Redirect 301 /merch/output/ https://womanowned.wine/purpose/merch
+
+# Promos & Blogs
+Redirect 301 /other-regions-topics/ https://womanowned.wine/
+Redirect 301 /2019/11/02/sonoma-rising-support-local-female-vintners-with-these-25-wines/ https://womanowned.wine/featured-bottles/sonoma-rising-support-local-female-vintners-with-these-25-wines/
+Redirect 301 /wowlist/ https://womanowned.wine/search
+Redirect 301 /current-offering/ https://womanowned.wine/wine-club/
+Redirect 301 /past-offerings/ https://womanowned.wine/wine-club-partners/
+Redirect 301 /2019/11/02/sonoma-rising-support-local-female-vintners-with-these-25-wines/ https://womanowned.wine/featured-bottles/sonoma-rising-support-local-female-vintners-with-these-25-wines/
+Redirect 301 /2018/11/25/holiday-roundup-celebrating-small-biz-everyday/ https://womanowned.wine/featured-bottles/Holiday-Roundup/
+
+
+# Wine-clubs
+Redirect 301 /wine-club/tessier-wines-kristie-tacey/ https://womanowned.wine/wine-club/
+
+# Winestory
+Redirect 301 /winestory/ https://womanowned.wine/blog/
+Redirect 301 /winestory/marta-rich/ https://womanowned.wine/interviews/cultivating-connection-marta-rich/
+
+# Tags & People
+
+Redirect 301 /tag/wine-club/ https://womanowned.wine/wine-club/
+Redirect 301 /tag/california-wine/ https://womanowned.wine/search
+Redirect 301 /tag/california-chardonnay/ https://womanowned.wine/search
+Redirect 301 /tag/cabernet/ https://womanowned.wine/search
+Redirect 301 /tag/cabernet-franc/ https://womanowned.wine/search
+Redirect 301 /tag/business/ https://womanowned.wine/search
+Redirect 301 /tag/black-excellence/ https://womanowned.wine/search
+Redirect 301 /tag/bcorp/ https://womanowned.wine/search
+Redirect 301 /tag/american-wine/ https://womanowned.wine/search
+Redirect 301 /martybannister/ https://womanowned.wine/interviews/shaping-the-field-marty-bannister/
+Redirect 301 /friends-preferred-vendors/ https://wowsonoma.com/purpose/advisory-board/
+Redirect 301 /marta-rich/ https://womanowned.wine/interviews/cultivating-connection-marta-rich/
+Redirect 301 /tag/jennifer-reichardt/ https://womanowned.wine/interviews/buoyed-by-community-jennifer-reichart-of-raft-wines/
+
+# Wordpress & Archives
+Redirect 301 /category/winemaker-profile/ https://womanowned.wine/blog/
+Redirect 301 /category/uncategorized/page/4/ https://womanowned.wine/category/uncategorized/
+Redirect 301 /category/uncategorized/ https://womanowned.wine/category/uncategorized/
+Redirect 301 /category/featured-bottle/page/2/ https://womanowned.wine/featured-bottles/
+Redirect 301 /category/featured-bottle/ https://womanowned.wine/featured-bottles/
+Redirect 301 /california/ https://womanowned.wine/california/
+Redirect 301 /california-2/ https://womanowned.wine/california/
+Redirect 301 /pacific-northwest/ https://womanowned.wine/pacific-northwest/
+Redirect 301 /pacific-northwest-2/ https://womanowned.wine/pacific-northwest/
