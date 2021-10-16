@@ -46,11 +46,34 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118334472-1"></script>
     <script>
+    // GA CODE
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-118334472-1');
+
+    // VINE SPRING
+    window.vinespringConfig = vs => {
+        vs.components.clubSignup = {
+            showDob: false,
+            showPhone: false,
+            source: {
+                label: 'How did you hear about us?',
+                options: {
+                    '': 'Select one...',
+                    google: 'Google',
+                    social: 'Social Media',
+                    wordOfMouth: 'Word of Mouth',
+                    Newsarticle: 'News Article',
+                    WineIndustry: 'Wine Industry Referral',
+                    Supermajority: 'Supermajority',
+                },
+                required: false,
+                type: 'dropdown'
+            }
+        }
+    }
     </script>
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e49f49aef80cb79df223052d3/34fa1f37bbe9d391e8823ba08.js");</script>
 </head>
