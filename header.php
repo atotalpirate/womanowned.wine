@@ -44,7 +44,7 @@
     }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X8B34YX783"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118334472-1"></script>
     <script>
     // GA CODE
     window.dataLayer = window.dataLayer || [];
@@ -52,6 +52,7 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-118334472-1');
+
     // VINE SPRING
     window.vinespringConfig = vs => {
         vs.components.clubSignup = {
@@ -91,6 +92,9 @@
                     <a class="navbar-item" href="/">
                         <span class="logo">
                             <?php echo file_get_contents( get_stylesheet_directory() . '/img/wow-logo-alt.svg' ); ?>
+                            <span class="logotype">
+                                <?php echo file_get_contents( get_stylesheet_directory() . '/img/wow-logotype-block.svg' ); ?>
+                            </span>
                         </span>
                     </a>
 

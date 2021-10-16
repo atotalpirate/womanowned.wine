@@ -154,8 +154,11 @@ header.site-header {
 .navbar-brand {
   align-items: center;
   .navbar-item {
-    span {
+    span.logo {
       line-height: 0;
+      .logotype svg {
+        padding: 10px;
+      }
       svg {
         height: 5rem;
         width: auto;

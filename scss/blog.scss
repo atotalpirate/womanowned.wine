@@ -18,11 +18,15 @@
             opacity: 0.666;
         }
         .content {
+            margin-top: 3rem;
             font-size: 1.25rem;
             position: relative;
         }
     }
     .read-more {
         text-decoration: underline;
+    }
+    .no-posts {
+        width: 100%;
     }
 }

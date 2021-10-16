@@ -133,21 +133,21 @@ $tagline = get_field('tagline');
 
         <div class="columns is-variable is-8 has-text-centered">
             <div class="column is-one-third">
-                <span class="icon has-text-dark is-size-1">
+                <span class="icon is-size-1">
                     <?php echo $how_we_work['icon_1']; ?>
                 </span>
                 <h3><?php echo $how_we_work['title_1']; ?></h3>
                 <p><?php echo $how_we_work['content_1']; ?></p>
             </div>
             <div class="column is-one-third">
-                <span class="icon has-text-dark is-size-1">
+                <span class="icon is-size-1">
                     <?php echo $how_we_work['icon_2']; ?>
                 </span>
                 <h3><?php echo $how_we_work['title_2']; ?></h3>
                 <p><?php echo $how_we_work['content_2']; ?></p>
             </div>
             <div class="column is-one-third">
-                <span class="icon has-text-dark is-size-1">
+                <span class="icon is-size-1">
                     <?php echo $how_we_work['icon_3']; ?>
                 </span>
                 <h3><?php echo $how_we_work['title_3']; ?></h3>
@@ -225,21 +225,24 @@ $wine_club = new WP_Query($args); ?>
                                     <?php echo $excerpt; ?>
                                 </div>
                             </div>
-                            <footer class="card-footer">
-                                <span class="featured-title">includes</span>
-                                <span class="featured-bottles">
-                                    <?php foreach ($featured_bottles as $key => $bottle) :
-                                        $bottle_img = wp_get_attachment_url(get_post_thumbnail_id($bottle->ID));
-                                        $bottle_title = get_the_title($bottle->ID);
-                                        $bottle_term = wp_get_post_terms($bottle->ID, 'varietals');
-                                        $bottle_url = get_the_permalink($bottle->ID);
-                                        //  echo '<pre class="white text">';var_dump($bottle_img);echo '</pre>'; 
-                                    ?>
-                                        <a href="<?php echo get_the_permalink($bottle->ID); ?>" class="image">
-                                            <img class="is-round" alt="Permalink for <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
-                                        </a>
-                                    <?php endforeach; ?>
-                                </span>
+                            <footer class="card-footer <?php echo $featured_bottles ? "has-featured" : "" ; ?>">
+                                <?php if ($featured_bottles) : ?>
+                                    <span class="featured-title">includes</span>
+                                    <span class="featured-bottles">
+                                        <?php foreach ($featured_bottles as $key => $bottle) :
+                                            $bottle_img = wp_get_attachment_url(get_post_thumbnail_id($bottle->ID));
+                                            $bottle_title = get_the_title($bottle->ID);
+                                            $bottle_term = wp_get_post_terms($bottle->ID, 'varietals');
+                                            $bottle_url = get_the_permalink($bottle->ID);
+                                            //  echo '<pre class="white text">';var_dump($bottle_img);echo '</pre>'; 
+                                        ?>
+                                            <a href="<?php echo get_the_permalink($bottle->ID); ?>" class="image">
+                                                <img class="is-rounded" alt="Permalink for <?php echo $bottle_title; ?>" src="<?php echo $bottle_img; ?>">
+                                            </a>
+                                        <?php endforeach; ?>
+                                    </span>
+                                <?php endif; ?>
+
                                 <a href="<?php echo $link; ?>" class="button is-primary is-rounded">
                                     <span class="icon is-small">
                                         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
